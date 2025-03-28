@@ -27,7 +27,7 @@ acima e abaixo).
 >
 > 4) A simulação deve considerar dois estados de propagação do fogo:
 > 
-> - Sem influência do vento: o fogo se propaga linearmente nas quatro direções ortogonais.
+> --- Sem influência do vento: o fogo se propaga linearmente nas quatro direções ortogonais.
 >
 > - Com influência do vento: o fogo se propaga apenas em direções ortogonais específicas, que devem ser configuradas no arquivo *config.h*, podendo ser uma ou mais direções.
 >
@@ -37,11 +37,11 @@ chamas (2) ou que o número máximo de interações, K, seja alcançado.
 Dentro desta matriz, há um animal que deve procurar uma posição segura. Sua movimentação segue as seguintes regras:
 > O animal, quando localizado em uma posição segura (valor 1 ou 0), deve procurar uma nova posição segura nas direções ortogonais, as posições são classificadas da seguinte forma:
 >
-> - (a) Melhor opção: posição com valor 4 (presença de água)
+>&nbsp;&nbsp;&nbsp;&nbsp;(a) Melhor opção: posição com valor 4 (presença de água)
 >
 > - (b) Opções intermediárias: posição com valor 0 (área vazia) e posição com valor 1 (árvore saudável).
 >
-> - (c) Pior opção: posição com valor 3 (árvore queimada)
+> -- (c) Pior opção: posição com valor 3 (árvore queimada)
 > 
 
 # Metodologia 
