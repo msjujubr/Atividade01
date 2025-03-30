@@ -1,7 +1,8 @@
 # Simulação de Propagação de Incêndios
-- [Especificação do Problema](#especificacao-do-problema)
-- [Metodologia](#metodologia)
-- [Discussão](#discussao)
+- [Especificação do Problema (atividade proposta)](#especificacao-do-problema)
+- [Entradas e Saídas (o que se espera?)](#entradas-e-saidas)
+- [Padrões de Propagação (análise do algoritmo desenvolvido)](#padroes-de-propagacao)
+- [Algoritmo e Possíveis Algoritmos (comparação com outros métodos)](#algoritmo-e-possiveis-algoritmos)
 - [Referências](#referencias)
   
 ## Especificação do Problema
