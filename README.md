@@ -50,7 +50,7 @@ nesta posição por até 3 interações.
 >
 > &nbsp;&nbsp;&nbsp;&nbsp;**3)** Quando o animal alcançar uma posição contendo água, essa deverá ser atualizada para o valor 0 e todas as posições ortogonalmente próximas deverão ser convertidas para o valor 1.
 
-# Metodologia 
 # Entradas e Saídas
-# Discussão
+# Padrões de Propagação
+# Possíveis Algoritmos
 # Referências
