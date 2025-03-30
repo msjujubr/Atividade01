@@ -52,5 +52,5 @@ nesta posição por até 3 interações.
 
 # Entradas e Saídas
 # Padrões de Propagação
-# Possíveis Algoritmos
+# Algoritmo e Possíveis Algoritmos
 # Referências
