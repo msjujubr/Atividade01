@@ -1,6 +1,6 @@
 # Simulação de Propagação de Incêndios
 - [Especificação do Problema (atividade proposta)](#especificacao-do-problema)
-- [Compilação](#compilacao)
+- [Compilação (explicação do Makefile)](#compilacao)
 - [Entradas e Saídas (o que se espera?)](#entradas-e-saidas)
 - [Padrões de Propagação (análise do algoritmo desenvolvido)](#padroes-de-propagacao)
 - [Referências](#referencias)
