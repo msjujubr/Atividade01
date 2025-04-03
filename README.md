@@ -6,6 +6,7 @@
 - [Referências](#referencias)
 - 
 ## Especificação do Problema
+Este programa consiste na implementação de um simulador de propagação de incêndios em matrizes, incrementando a movimentação de um animal.  
 Tendo a matriz original contida em um arquivo *input.dat*, com a primeira linha informando a proporção da matriz e a localização do foco do incêndio, onde cada algarismo representa um estado de simulação:
 
 >  &nbsp;&nbsp;&nbsp;&nbsp;0 -> Área vazia (não queima)
