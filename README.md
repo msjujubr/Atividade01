@@ -1,10 +1,10 @@
 # Simulação de Propagação de Incêndios
 - [Especificação do Problema (atividade proposta)](#especificacao-do-problema)
+- [Compilação](#compilacao)
 - [Entradas e Saídas (o que se espera?)](#entradas-e-saidas)
 - [Padrões de Propagação (análise do algoritmo desenvolvido)](#padroes-de-propagacao)
-- [Algoritmo e Possíveis Algoritmos (comparação com outros métodos)](#algoritmo-e-possiveis-algoritmos)
 - [Referências](#referencias)
-  
+- 
 ## Especificação do Problema
 Tendo a matriz original contida em um arquivo *input.dat*, com a primeira linha informando a proporção da matriz e a localização do foco do incêndio, onde cada algarismo representa um estado de simulação:
 
@@ -51,7 +51,7 @@ nesta posição por até 3 interações.
 >
 > &nbsp;&nbsp;&nbsp;&nbsp;**3)** Quando o animal alcançar uma posição contendo água, essa deverá ser atualizada para o valor 0 e todas as posições ortogonalmente próximas deverão ser convertidas para o valor 1.
 
+# Compilação
 # Entradas e Saídas
 # Padrões de Propagação
-# Algoritmo e Possíveis Algoritmos
 # Referências
