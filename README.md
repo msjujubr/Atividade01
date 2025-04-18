@@ -10,21 +10,6 @@
   - [Arquivos 'Simulator'](#arquivos-simulator)
 - [Resultados](#resultados)
 - [Referências](#referências)
-
-
-
-- [Especificação do Problema](#especificação-do-problema)
-- [Compilação, Entradas e Saídas](#compilação-entradas-e-saídas)
-  - [*MakeFile*](#makefile)
-  - [*Input.dat*](#inputdat)
-  - [*Output.dat*](#outputdat)
-- [O Algoritmo Desenvolvido](#algoritmo-desenvolvido)
-  - [*Lógica Utilizada*](#lógica-utilizada)
-  - [*Arquivos 'Config'*](#arquivos-config)
-  - [*Arquivos 'Simulator'*](#arquivos-simulator)
-- [Resultados](#resultados)
-- [Referências](#referências)
-
   
 ## Especificação do Problema
 Este programa consiste na implementação de um simulador de propagação de incêndios em matrizes, incrementando a movimentação de um animal.  
