@@ -1,15 +1,16 @@
 # Simulação de Propagação de Incêndios
-- [Especificação do Problema](#especificacao-do-problema)
-- [Compilação, Entradas e Saídas](#compilacao,-entradas-e-saidas)
-  - *MakeFile*
-  - *Input.dat*
-  - *Output.dat*
+- [Especificação do Problema](#especificação-do-problema)
+- [Compilação, Entradas e Saídas](#compilação-entradas-e-saídas)
+  - [MakeFile](#makefile)
+  - [Input.dat](#inputdat)
+  - [Output.dat](#outputdat)
 - [O Algoritmo Desenvolvido](#algoritmo-desenvolvido)
-  - *Lógica Utilizada*
-  - *Arquivos 'Config'*
-  - *Arquivos 'Simulator'*
+  - [Lógica Utilizada](#lógica-utilizada)
+  - [Arquivos 'Config'](#arquivos-config)
+  - [Arquivos 'Simulator'](#arquivos-simulator)
 - [Resultados](#resultados)
-- [Referências](#referencias)
+- [Referências](#referências)
+
 
 
 - [Especificação do Problema](#especificação-do-problema)
