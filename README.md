@@ -1,6 +1,6 @@
 # Simulação de Propagação de Incêndios
-- [Especificação do Problema (atividade proposta)](#especificacao-do-problema)
-- [Compilação, Entradas e Saídas (o que se espera?)](#compilacao,-entradas-e-saidas)
+- [Especificação do Problema](#especificacao-do-problema)
+- [Compilação, Entradas e Saídas](#compilacao,-entradas-e-saidas)
   - *MakeFile*
   - *Input.dat*
   - *Output.dat*
@@ -10,6 +10,20 @@
   - *Arquivos 'Simulator'*
 - [Resultados](#resultados)
 - [Referências](#referencias)
+
+
+- [Especificação do Problema](#especificação-do-problema)
+- [Compilação, Entradas e Saídas](#compilação-entradas-e-saídas)
+  - [*MakeFile*](#makefile)
+  - [*Input.dat*](#inputdat)
+  - [*Output.dat*](#outputdat)
+- [O Algoritmo Desenvolvido](#algoritmo-desenvolvido)
+  - [*Lógica Utilizada*](#lógica-utilizada)
+  - [*Arquivos 'Config'*](#arquivos-config)
+  - [*Arquivos 'Simulator'*](#arquivos-simulator)
+- [Resultados](#resultados)
+- [Referências](#referências)
+
   
 ## Especificação do Problema
 Este programa consiste na implementação de um simulador de propagação de incêndios em matrizes, incrementando a movimentação de um animal.  
@@ -59,6 +73,12 @@ nesta posição por até 3 interações.
 > &nbsp;&nbsp;&nbsp;&nbsp;**3)** Quando o animal alcançar uma posição contendo água, essa deverá ser atualizada para o valor 0 e todas as posições ortogonalmente próximas deverão ser convertidas para o valor 1.
 
 # Compilação, Entradas e Saídas
+## Makefile
+## Input.dat
+## Output.dat
 # Algoritmo Desenvolvido
+## *Lógica Utilizada*
+## *Arquivos 'Config'*
+## *Arquivos 'Simulator'*
 # Resultados
 # Referências
