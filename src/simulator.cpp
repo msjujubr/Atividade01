@@ -1,13 +1,8 @@
 #include "simulator.hpp"
 #include "config.hpp"
-#include "archives.hpp"
-#include <algorithm> 
-#include <sstream> 
 
-// entrou na agua, joga imediatamente
 bool atividade_fogo(){
-    std::cout << config.arvores_queimando.size() << std::endl;
-    if (!config.arvores_queimando.empty()){ return 1; }
+    if (!cnfg.arv_2_3.empty()){ return 1; }
     return 0;   
 }
 
@@ -15,127 +10,134 @@ void inicializacao(){
     limparSaida();
     configuracoes();
     int i = 1;
-    while(atividade_fogo()){
+    do{
         std::vector<std::string> mensagem = {"iteracao", std::to_string(i)};
         escritaArquivo<std::string>(mensagem);
     
-        animal();
-        movimentacao_animal();
+        animal_movim();
+        queimadas();   
         propagacao();
         schrodinger();
-        save_game();
+        escape();
+        salvar();
         
-        if(i >= config.iteracoes){return;}
+        if(i >= cnfg.iteracoes){return;}
         i++;
-    }   
+
+    } while (atividade_fogo());
 }
 
-void animal(){
-    if (config.animVid){
-    } else{
-        bool pos = 0;
-        for (int i = 0; i < config.n && !pos; i++){
-            for(int j = 0; j < config.m; j ++){
-                if(!fog_prox(i, j)){
-                    if(config.floresta[i][j] == 0 || config.floresta[i][j] == 1){
-                    config.animPosX = i; config.animPosY = j;
-                    pos = 1;
-                    }
-                    break;
+void escape(){
+    if(cnfg.animVid){
+        int x = cnfg.animX, y = cnfg.animY;
+        if (cnfg.floresta[x][y] == 2){
+            cnfg.animMrt++;
+            std::pair<int, int> vizinhos[4] = {{x+1, y}, {x-1, y}, {x, y-1}, {x, y+1}};
+            for(auto[i, j] : vizinhos){
+                if(i >= 0 && i < cnfg.n && j >= 0 && j < cnfg.m){
+                    if(cnfg.floresta[i][j] == 0 || cnfg.floresta[i][j] == 1){ 
+                        cnfg.animX = i;
+                        cnfg.animY = j;
+                        return;
+                    } 
                 }
-            }
+            }        
         }
     }
 }
 
 bool fog_prox(int x, int y){
     std::pair<int, int> vizinhos[8] = {{x+1, y}, {x+1, y+1}, {x+1, y-1}, {x-1, y}, {x-1, y-1}, {x-1, y+1}, {x, y-1}, {x, y+1}};
-    return 1;
     for(auto[i, j] : vizinhos){
-        if(x >= 0 && x < config.n && y >= 0 && y < config.m){
-            if(config.floresta[i][j] == 2){}
-            return 1;
+        if(i >= 0 && i < cnfg.n && j >= 0 && j < cnfg.m){
+            if(cnfg.floresta[i][j] == 2){ return 1; } 
         }
     }   return 0;
 }
 
-void movimentacao_animal(){
-    int x = config.animPosX, y = config.animPosY, aux = 10, auxX=0, auxY=0;
-    if(fog_prox(x, y)){ 
-        std::pair<int, int> vizinhos[8] = {{x+1, y}, {x-1, y}, {x, y-1}, {x, y+1}};
-        for(auto[i, j] : vizinhos){
-            if(i >= 0 && i < config.n && j >= 0 && j < config.m){
-                if(config.floresta[i][j] == 4){
-                    animal_agua();
-                    config.animPosX = i; config.animPosY = j;
-                    return;
-                } else{  
+void animal_movim(){
+    if(cnfg.animVid){
+        int x = cnfg.animX, y = cnfg.animY, aux = 12, auxX = x, auxY = y;
+        if(fog_prox(x, y)){ 
+            std::pair<int, int> vizinhos[4] = {{x+1, y}, {x-1, y}, {x, y-1}, {x, y+1}};
+            for(auto[i, j] : vizinhos){
+                if(i >= 0 && i < cnfg.n && j >= 0 && j < cnfg.m){
+                    if(cnfg.floresta[i][j] == 4){
+                        animal_agua();
+                        cnfg.animX = i; cnfg.animY = j;
+                        return;
+                    }  
+                    int cont = soma_pos(i, j);
+                    if (aux > cont){
+                        aux = cont;
+                        auxX = i;
+                        auxY = j;
+                    }  
+                }
+            }
+            cnfg.animX = auxX; cnfg.animY = auxY;
+            if(auxX != x && auxY!= y){ cnfg.animCnt = 0; }
+            else{ cnfg.animCnt++; } cnfg.animMov++;
+        } else if (cnfg.animCnt < 2){ cnfg.animCnt++; }
+        else {
+            std::pair<int, int> vizinhos[4] = {{x+1, y}, {x-1, y}, {x, y-1}, {x, y+1}};
+            for(auto[i, j] : vizinhos){
+                if(i >= 0 && i < cnfg.n && j >= 0 && j < cnfg.m){
                     int cont = soma_pos(i, j);
                     if (aux > cont){
                         aux = cont;
                         auxX = i;
                         auxY = j;
                     }
-                }
-                
+                }   
             }
-        }
-        config.animPosX = auxX; config.animPosY = auxY;
-        config.animCont = 0; config.animMov++;
-    } else if (config.animCont < 3){ config.animCont++; }
-    else {
-        std::pair<int, int> vizinhos[8] = {{x+1, y}, {x-1, y}, {x, y-1}, {x, y+1}};
-        for(auto[i, j] : vizinhos){
-            if(i >= 0 && i < config.n && j >= 0 && j < config.m){
-                int cont = soma_pos(i, j);
-                if (aux > cont){
-                    aux = cont;
-                    auxX = i;
-                    auxY = j;
-                }
-            }   
+            cnfg.animX = auxX; cnfg.animY = auxY;
+            if(auxX != x && auxY!= y){ cnfg.animCnt = 0; }
+            else{cnfg.animCnt++;} cnfg.animMov++;
         }
     }
 }
 
 int soma_pos(int x, int y){
-    std::pair<int, int> vizinhos[8] = {{x+1, y}, {x-1, y}, {x, y-1}, {x, y+1}};
+    std::pair<int, int> vizinhos[4] = {{x+1, y}, {x-1, y}, {x, y-1}, {x, y+1}};
     int cont = 0;
     for(auto[i, j] : vizinhos){
-        if(i >= 0 && i < config.n && j >= 0 && j < config.m){
-            if(config.floresta[i][j] == 4)continue;
-            if(std::make_pair(i, j) == std::make_pair(config.animPosX, config.animPosY))continue;
-            cont += config.floresta[i][j];
+        if(i >= 0 && i < cnfg.n && j >= 0 && j < cnfg.m){
+            if(cnfg.floresta[i][j] == 4 || 
+               std::make_pair(i, j) == std::make_pair(cnfg.animX, cnfg.animY))continue;
+            cont += cnfg.floresta[i][j];
         }
     }
     return cont;
 }
 
 void schrodinger(){
-    int x = config.animPosX, y = config.animPosY, aux1=0, cont=0;
-    std::pair<int, int> vizinhos[8] = {{x+1, y}, {x-1, y}, {x, y-1}, {x, y+1}};
-    for(auto[i, j] : vizinhos){
-        if(i >= 0 && i < config.n && j >= 0 && j < config.m){
-            aux1++, cont++;
-            if(config.floresta[i][j] == 2){
-                aux1++;
+    if(cnfg.animVid){
+        int x = cnfg.animX, y = cnfg.animY, aux1=0, cont=0;
+        std::pair<int, int> vizinhos[8] = {{x+1, y}, {x-1, y}, {x, y-1}, {x, y+1}};
+        for(auto[i, j] : vizinhos){
+            if(i >= 0 && i < cnfg.n && j >= 0 && j < cnfg.m){
+                aux1++, cont++;
+                if(cnfg.floresta[i][j] == 2){
+                    aux1++;
+                }
             }
         }
+        if(aux1 == (2*cont)){ 
+            cnfg.animVid = 0;
+            cnfg.animX = -1; cnfg.animY = -1;
+            cnfg.animMrt++;
+            return;
+        }
     }
-    if(aux1 == (2*cont)){ 
-        config.animVid = 0;
-        config.animMort++;
-        return;
-    }
-    config.animVid = 1;
 }
 
 void animal_agua(){
-    int x = config.animPosX, y = config.animPosY;
+    int x = cnfg.animX, y = cnfg.animY;
     std::pair<int,int> vizinhos[4] = {{x+1, y}, {x-1, y}, {x, y+1}, {x, y-1}};
     for(auto [i, j] : vizinhos){
-        if(i >= 0 && i < config.n && j >= 0 && j < config.m){
-        config.floresta[i][j] = 1;
+        if(i >= 0 && i < cnfg.n && j >= 0 && j < cnfg.m){
+            cnfg.floresta[i][j] = 1;
         }
     }
 }

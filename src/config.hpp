@@ -8,30 +8,27 @@
 #include <utility>
 
 struct Config {
-    int iteracoes = 1000;
+    // Variáveis Personalizáveis
+    int iteracoes = 100;
+    bool vntD = 0, vntE = 0, vntC = 0, vntB = 0;
 
-    bool vntD = 0;
-    bool vntE = 0;
-    bool vntC = 0;
-    bool vntB = 0;
-
+    // Variáveis Globais
     std::vector<std::vector<int>> floresta;
-    std::vector<std::pair<int, int>> arvores_queimando;
-
-    int n, m;
-    int animPosX, animPosY, animMov, animCont, animMort;
+    std::vector<std::pair<int, int>> arv_1_2, arv_2_3;
+    int n, m, animX, animY, animMov, animCnt, animMrt;
     bool animVid;
 };
 
-extern Config config;
+extern Config cnfg;
 
 int defVento();
+
 void configuracoes();
-void inicio_animal();
-
 void propagacao();
-void prop(int x, int y, std::vector<std::pair<int,int>>& auxiliar);
+void salvar();
 
-void save_game();
+void inicio_animal();
+void prop(int x, int y, std::vector<std::pair<int,int>>& auxiliar);
+void queimadas();
 
 #endif

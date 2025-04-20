@@ -3,10 +3,10 @@
 #include <algorithm> 
 #include <sstream> 
 
-Config config;
+Config cnfg;
 
 int defVento(){
-    bool E = config.vntE, D = config.vntD, C = config.vntC, B = config.vntB;
+    bool E = cnfg.vntE, D = cnfg.vntD, C = cnfg.vntC, B = cnfg.vntB;
     bool todos (E && B && C && D);
     if (todos || !todos){ return 0; } //CBDE
     else if (!C && !B && !D && E) { return 1; }//E
@@ -38,8 +38,8 @@ void configuracoes(){
         i++;
     }
 
-    config.n = numeros[0]; config.m = numeros[1];
-    config.arvores_queimando.push_back(std::make_pair(numeros[2], numeros[3]));
+    cnfg.n = numeros[0]; cnfg.m = numeros[1];
+    cnfg.arv_1_2.push_back(std::make_pair(numeros[2], numeros[3]));
 
     std::vector<std::string> mensagem = {"iteracao", "0"};
     escritaArquivo<std::string>(mensagem);
@@ -51,236 +51,237 @@ void configuracoes(){
         while (stream >> num){
             linha.push_back(num);
         }
-        config.floresta.push_back(linha);
+        cnfg.floresta.push_back(linha);
         escritaArquivo<int>(linha);
 
     }
-    std::vector<std::pair<int, int>> zeros;
-    for (int i = 0; i < config.n; ++i) {
-        for (int j = 0; j < config.m; ++j) {
-            if (config.floresta[i][j] == 0) {
-                zeros.push_back({i, j});
-            }
-        }
-    }
-
+    
     inicio_animal();
-    config.animVid = 1;
+
+    int x = cnfg.animX, y = cnfg.animY, pas = cnfg.animMov, escp = cnfg.animMrt;
+    mensagem = {"Info:", std::to_string(pas), "Passos", std::to_string(escp), 
+                "Escapes", "X:", std::to_string(x), "Y", std::to_string(y)};
+    escritaArquivo<std::string>(mensagem);
+
 }
 
 void propagacao(){
     std::vector<std::pair<int, int>> vizinhos, auxiliar;
     switch (defVento()){  
         case 0:
-        while (!config.arvores_queimando.empty()){
-            auto [i, j] = config.arvores_queimando.front(); 
-            config.floresta[i][j] = 3;
-            config.arvores_queimando.erase(config.arvores_queimando.begin()); 
+        while (!cnfg.arv_1_2.empty()){
+            auto [i, j] = cnfg.arv_1_2.front(); 
+            cnfg.arv_2_3.push_back(cnfg.arv_1_2.front());
+            cnfg.arv_1_2.erase(cnfg.arv_1_2.begin()); 
             vizinhos = {{i-1, j}, {i+1, j}, {i, j-1}, {i, j+1}};
             for (auto [vi, vj] : vizinhos) { 
                 prop(vi, vj, auxiliar);
             }
         }
-        config.arvores_queimando = auxiliar;
+        cnfg.arv_1_2 = auxiliar;
         break;
     case 1: // E
-        while (!config.arvores_queimando.empty()){
-            auto [i, j] = config.arvores_queimando.front(); 
-            config.floresta[i][j] = 3;
-            config.arvores_queimando.erase(config.arvores_queimando.begin()); 
+        while (!cnfg.arv_1_2.empty()){
+            auto [i, j] = cnfg.arv_1_2.front(); 
+            cnfg.arv_2_3.push_back(cnfg.arv_1_2.front());
+            cnfg.arv_1_2.erase(cnfg.arv_1_2.begin()); 
             vizinhos = {{i-1, j}};
             for (auto [vi, vj] : vizinhos) { 
                 prop(vi, vj, auxiliar);
             }
         }
-        config.arvores_queimando = auxiliar;
+        cnfg.arv_1_2 = auxiliar;
         break;
     case 2: // D
-        while (!config.arvores_queimando.empty()){
-            auto [i, j] = config.arvores_queimando.front(); 
-            config.floresta[i][j] = 3;
-            config.arvores_queimando.erase(config.arvores_queimando.begin()); 
+        while (!cnfg.arv_1_2.empty()){
+            auto [i, j] = cnfg.arv_1_2.front(); 
+            cnfg.arv_2_3.push_back(cnfg.arv_1_2.front());
+            cnfg.arv_1_2.erase(cnfg.arv_1_2.begin()); 
             vizinhos = {{i+1, j}};
             for (auto [vi, vj] : vizinhos) { 
                 prop(vi, vj, auxiliar);
             }
         }
-        config.arvores_queimando = auxiliar;
+        cnfg.arv_1_2 = auxiliar;
         break;
     case 3: // DE
-        while (!config.arvores_queimando.empty()){
-            auto [i, j] = config.arvores_queimando.front(); 
-            config.floresta[i][j] = 3;
-            config.arvores_queimando.erase(config.arvores_queimando.begin()); 
+        while (!cnfg.arv_1_2.empty()){
+            auto [i, j] = cnfg.arv_1_2.front(); 
+            cnfg.arv_2_3.push_back(cnfg.arv_1_2.front());
+            cnfg.arv_1_2.erase(cnfg.arv_1_2.begin()); 
             vizinhos = {{i+1, j}, {i-1, j}};
             for (auto [vi, vj] : vizinhos) { 
                 prop(vi, vj, auxiliar);
             }
         }
-        config.arvores_queimando = auxiliar;
+        cnfg.arv_1_2 = auxiliar;
         break;
     case 4: // B
-        while (!config.arvores_queimando.empty()){
-            auto [i, j] = config.arvores_queimando.front(); 
-            config.floresta[i][j] = 3;
-            config.arvores_queimando.erase(config.arvores_queimando.begin()); 
+        while (!cnfg.arv_1_2.empty()){
+            auto [i, j] = cnfg.arv_1_2.front(); 
+            cnfg.arv_2_3.push_back(cnfg.arv_1_2.front());
+            cnfg.arv_1_2.erase(cnfg.arv_1_2.begin()); 
             vizinhos = {{i, j-1}};
             for (auto [vi, vj] : vizinhos) { 
                 prop(vi, vj, auxiliar);
             }
         }
-        config.arvores_queimando = auxiliar;
+        cnfg.arv_1_2 = auxiliar;
         break;
     case 5: // BE
-        while (!config.arvores_queimando.empty()){
-            auto [i, j] = config.arvores_queimando.front(); 
-            config.floresta[i][j] = 3;
-            config.arvores_queimando.erase(config.arvores_queimando.begin()); 
+        while (!cnfg.arv_1_2.empty()){
+            auto [i, j] = cnfg.arv_1_2.front(); 
+            cnfg.arv_2_3.push_back(cnfg.arv_1_2.front());
+            cnfg.arv_1_2.erase(cnfg.arv_1_2.begin()); 
             vizinhos = {{i-1, j}, {i, j-1}};
             for (auto [vi, vj] : vizinhos) { 
                 prop(vi, vj, auxiliar);
             }
         }
-        config.arvores_queimando = auxiliar;
+        cnfg.arv_1_2 = auxiliar;
         break;        
     case 6: // BD
-        while (!config.arvores_queimando.empty()){
-            auto [i, j] = config.arvores_queimando.front(); 
-            config.floresta[i][j] = 3;
-            config.arvores_queimando.erase(config.arvores_queimando.begin()); 
+        while (!cnfg.arv_1_2.empty()){
+            auto [i, j] = cnfg.arv_1_2.front(); 
+            cnfg.arv_2_3.push_back(cnfg.arv_1_2.front());
+            cnfg.arv_1_2.erase(cnfg.arv_1_2.begin()); 
             vizinhos = {{i+1, j}, {i, j-1}};
             for (auto [vi, vj] : vizinhos) { 
                 prop(vi, vj, auxiliar);
             }
         }
-        config.arvores_queimando = auxiliar;
+        cnfg.arv_1_2 = auxiliar;
         break;
     case 8: // BDE
-        while (!config.arvores_queimando.empty()){
-            auto [i, j] = config.arvores_queimando.front(); 
-            config.floresta[i][j] = 3;
-            config.arvores_queimando.erase(config.arvores_queimando.begin()); 
+        while (!cnfg.arv_1_2.empty()){
+            auto [i, j] = cnfg.arv_1_2.front(); 
+            cnfg.arv_2_3.push_back(cnfg.arv_1_2.front());
+            cnfg.arv_1_2.erase(cnfg.arv_1_2.begin()); 
             vizinhos = {{i-1, j}, {i, j-1}, {i+1, j}};
             for (auto [vi, vj] : vizinhos) { 
                 prop(vi, vj, auxiliar);
             }
         }
-        config.arvores_queimando = auxiliar;
+        cnfg.arv_1_2 = auxiliar;
         break;
     case 9: // C
-        while (!config.arvores_queimando.empty()){
-            auto [i, j] = config.arvores_queimando.front(); 
-            config.floresta[i][j] = 3;
-            config.arvores_queimando.erase(config.arvores_queimando.begin()); 
+        while (!cnfg.arv_1_2.empty()){
+            auto [i, j] = cnfg.arv_1_2.front(); 
+            cnfg.arv_2_3.push_back(cnfg.arv_1_2.front());
+            cnfg.arv_1_2.erase(cnfg.arv_1_2.begin()); 
             vizinhos = {{i, j+1}};
             for (auto [vi, vj] : vizinhos) { 
                 prop(vi, vj, auxiliar);
             }
         }
-        config.arvores_queimando = auxiliar;
+        cnfg.arv_1_2 = auxiliar;
         break;
     case 10: // CE
-        while (!config.arvores_queimando.empty()){
-            auto [i, j] = config.arvores_queimando.front(); 
-            config.floresta[i][j] = 3;
-            config.arvores_queimando.erase(config.arvores_queimando.begin()); 
+        while (!cnfg.arv_1_2.empty()){
+            auto [i, j] = cnfg.arv_1_2.front(); 
+            cnfg.arv_2_3.push_back(cnfg.arv_1_2.front());
+            cnfg.arv_1_2.erase(cnfg.arv_1_2.begin()); 
             vizinhos = {{i-1, j}, {i, j+1}};
             for (auto [vi, vj] : vizinhos) { 
                 prop(vi, vj, auxiliar);
             }
         }
-        config.arvores_queimando = auxiliar;
+        cnfg.arv_1_2 = auxiliar;
         break;
     case 11: // CD
-        while (!config.arvores_queimando.empty()){
-            auto [i, j] = config.arvores_queimando.front(); 
-            config.floresta[i][j] = 3;
-            config.arvores_queimando.erase(config.arvores_queimando.begin()); 
+        while (!cnfg.arv_1_2.empty()){
+            auto [i, j] = cnfg.arv_1_2.front(); 
+            cnfg.arv_2_3.push_back(cnfg.arv_1_2.front());
+            cnfg.arv_1_2.erase(cnfg.arv_1_2.begin()); 
             vizinhos = {{i+1, j}, {i, j+1}};
             for (auto [vi, vj] : vizinhos) { 
                 prop(vi, vj, auxiliar);
             }
         }
-        config.arvores_queimando = auxiliar;
+        cnfg.arv_1_2 = auxiliar;
         break;
     case 12: // CDE
-        while (!config.arvores_queimando.empty()){
-            auto [i, j] = config.arvores_queimando.front(); 
-            config.floresta[i][j] = 3;
-            config.arvores_queimando.erase(config.arvores_queimando.begin()); 
+        while (!cnfg.arv_1_2.empty()){
+            auto [i, j] = cnfg.arv_1_2.front(); 
+            cnfg.arv_2_3.push_back(cnfg.arv_1_2.front());
+            cnfg.arv_1_2.erase(cnfg.arv_1_2.begin()); 
             vizinhos = {{i-1, j}, {i+1, j}, {i, j+1}};
             for (auto [vi, vj] : vizinhos) { 
                 prop(vi, vj, auxiliar);
             }
         }
-        config.arvores_queimando = auxiliar;
+        cnfg.arv_1_2 = auxiliar;
         break;
     case 13: // CB
-        while (!config.arvores_queimando.empty()){
-            auto [i, j] = config.arvores_queimando.front(); 
-            config.floresta[i][j] = 3;
-            config.arvores_queimando.erase(config.arvores_queimando.begin()); 
+        while (!cnfg.arv_1_2.empty()){
+            auto [i, j] = cnfg.arv_1_2.front(); 
+            cnfg.arv_2_3.push_back(cnfg.arv_1_2.front());
+            cnfg.arv_1_2.erase(cnfg.arv_1_2.begin()); 
             vizinhos = {{i, j-1}, {i, j+1}};
             for (auto [vi, vj] : vizinhos) { 
                 prop(vi, vj, auxiliar);
             }
         }
-        config.arvores_queimando = auxiliar;
+        cnfg.arv_1_2 = auxiliar;
         break;
     case 14: // CBE
-        while (!config.arvores_queimando.empty()){
-            auto [i, j] = config.arvores_queimando.front(); 
-            config.floresta[i][j] = 3;
-            config.arvores_queimando.erase(config.arvores_queimando.begin()); 
+        while (!cnfg.arv_1_2.empty()){
+            auto [i, j] = cnfg.arv_1_2.front(); 
+            cnfg.arv_2_3.push_back(cnfg.arv_1_2.front());
+            cnfg.arv_1_2.erase(cnfg.arv_1_2.begin()); 
             vizinhos = {{i-1, j}, {i, j-1}, {i, j+1}};
             for (auto [vi, vj] : vizinhos) { 
                 prop(vi, vj, auxiliar);
             }
         }
-        config.arvores_queimando = auxiliar;
+        cnfg.arv_1_2 = auxiliar;
         break;   
     }
 }
 
-void prop(int x, int y, std::vector<std::pair<int,int>>& arvores){
-    if(x >= 0 && x < config.n && y >= 0 && y < config.m){
-        if(config.floresta[x][y] == 1){
-            config.floresta[x][y] = 2;
+void prop(int x, int y, std::vector<std::pair<int,int>>& arvores){ 
+    if(x >= 0 && x < cnfg.n && y >= 0 && y < cnfg.m){
+        if(cnfg.floresta[x][y] == 1){
+            cnfg.floresta[x][y] = 2;
             arvores.push_back(std::make_pair(x, y));
         }
     }
 }
 
-void save_game(){
+void salvar(){   
+    for(int i = 0; i <cnfg. n; i++){ escritaArquivo<int>(cnfg.floresta[i]); }
+    int x = cnfg.animX, y = cnfg.animY, pas = cnfg.animMov, escp = cnfg.animMrt;
     std::vector<std::string> mensagem;
-    std::cout<< "X: " << config.animPosX << " Y: " << config.animPosY << std::endl;
-    int original = config.floresta[config.animPosX][config.animPosY];
-    config.floresta[config.animPosX][config.animPosY] = 9;
-
-    for(int i = 0; i <config. n; i++){ escritaArquivo<int>(config.floresta[i]); }
-    
-    config.floresta[config.animPosX][config.animPosY] = original;
-
-    mensagem = {"Info:", std::to_string(config.animMov), "Passos", std::to_string(config.animMort), "Mortes do Animal"};
+    mensagem = {"Info:", std::to_string(pas), "Passos", std::to_string(escp), 
+                "Escapes", "X:", std::to_string(x), "Y", std::to_string(y)};
     escritaArquivo<std::string>(mensagem);
-    mensagem.clear();
 }
 
-void inicio_animal(){
+void inicio_animal(){ 
+    cnfg.animVid = 1; cnfg.animCnt = 0; cnfg.animMrt = 0; cnfg.animMov = 0;
+    
     std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dist_linha(0, config.n - 1);
-    std::uniform_int_distribution<> dist_coluna(0, config.m - 1);
+    std::mt19937 aleatorio(rd());
+    std::uniform_int_distribution<> linhaSort(0, cnfg.n - 1);
+    std::uniform_int_distribution<> colunaSort(0, cnfg.m - 1);
 
     while (true) {
-        int i = dist_linha(gen);
-        int j = dist_coluna(gen);
+        int lin = linhaSort(aleatorio);
+        int col = colunaSort(aleatorio);
+        int v = cnfg.floresta[lin][col];
 
-        if (config.floresta[i][j] == 0 ||config.floresta[i][j] == 1) {
-            config.animPosX = i;
-            config.animPosY = j;
+        if (v == 0 || v == 1) {
+            cnfg.animX = lin;
+            cnfg.animY = col;
             return;
         }
     }
+}
 
+void queimadas(){
+    while(!cnfg.arv_2_3.empty()){
+        auto [i, j] = cnfg.arv_2_3.front(); 
+        cnfg.arv_2_3.erase(cnfg.arv_2_3.begin()); 
+        cnfg.floresta[i][j] = 3;
+    }
 }
