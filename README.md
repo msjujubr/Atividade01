@@ -167,7 +167,7 @@ Mesmo que, na matriz de entrada, não esteja definido como 2 a posição do fogo
 A simulação salva cada iteração dentro de um "Output.dat", cada iteração guarda os seguintes elementos:
 - Nova matriz (com a propagação do fogo)
 - Quantos passos o animal deu, desde o último momento em que ficou parado (0)
-- Quantas vezes o animal precisou de escapar do fogo (chama atingiu a célula em que o animal estava)
+- Quantas vezes o animal precisou escapar do fogo (chama atingiu a célula em que o animal estava)
 - Coordenadas X e Y do animal
 
 Exemplo de saída:
@@ -180,7 +180,7 @@ Exemplo de saída:
 1 1 1 1 4
 0 0 1 1 1
 1 4 1 0 4
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Animal: 0 Passos, 0 Escapes, X: 3 Y: 0
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Animal: 0 Passos, 0 Escapes, X: 3 Y: 0
 </pre>
 </div>
 
