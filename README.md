@@ -145,7 +145,7 @@ Este apresenta os seguintes comandos:
 
 &nbsp;&nbsp;&nbsp;&nbsp;**make c:** make clean + make run
 
-[Script do Makefile utilizado (C++)](Atividade01/Makefile)
+[Script do Makefile utilizado (C++)](Makefile)
 
 ## Input.dat
 O programa recebe os dados a partir de um arquivo "Input.dat", onde a primeira linha contém as dimensões nxm da matriz e a coordenada (x,y) do foco do incêndio, as demais linhas são a floresta (matriz).
