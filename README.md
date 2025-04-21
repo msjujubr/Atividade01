@@ -1,15 +1,13 @@
 # Simulação de Propagação de Incêndios
 - [Especificação do Problema](#especificação-do-problema)
-- [Compilação, Entradas e Saídas](#compilação-entradas-e-saídas)
-  - [MakeFile](#makefile)
-  - [Input.dat](#inputdat)
-  - [Output.dat](#outputdat)
 - [O Algoritmo Desenvolvido](#algoritmo-desenvolvido)
   - [Lógica Utilizada](#lógica-utilizada)
   - [Arquivos 'Config'](#arquivos-config)
   - [Arquivos 'Simulator'](#arquivos-simulator)
-- [Resultados](#resultados)
-- [Referências](#referências)
+- [Compilação, Entradas e Saídas](#compilação-entradas-e-saídas)
+  - [MakeFile](#makefile)
+  - [Input.dat](#inputdat)
+  - [Output.dat](#outputdat)
   
 ## Especificação do Problema
 Este programa consiste na implementação de um simulador de propagação de incêndios em matrizes, incrementando a movimentação de um animal.  
@@ -73,19 +71,66 @@ Para o problema proposto, o programa segue a seguinte ordem:
   - Se estiver vivo, e se for o caso, segunda chance de movimento
   - Salvar a iteração no arquivo 'Output.dat'
 
-A simulação é encerrada quando não há árvores queimando (2), ou que o número de iterações chegou ao limite. Tanto a quantidade de iterações quanto as direções de propagação (definidas pelos ventos vntD, vntE, vntC e vntB) são definidas pelo programador dentro da struct Config, dentro da biblioteca "config.hpp"
+A simulação é encerrada quando não há árvores queimando (2), ou que o número de iterações chegou ao limite. Tanto a quantidade de iterações quanto as direções de propagação, declaradas como 'vntD' (direita), 'vntE' (esquerda), 'vntC' (cima) e 'vntB' (baixo), são definidas pelo programador dentro da struct Config, incluída na biblioteca "config.hpp"
 
 O código é divido em duas bibliotecas: 
 - **Config:** declaração as variáveis globais dentro da struct Config, funções de inicializar as variáveis, salvar as iterações e aquelas envolvendo o incêndio.
 - **Simulator:** contém a função 'main' do programa, que vai mantê-lo em loop, e as funções que envolvem a movimentação do animal.
 
-Dentro das bibliotecas as funções são divididas entre principais e auxiliares.
+A leitura e escrita dos arquivos são feitas por meio da biblioteca [Archive](Atividade01/Makefile)
 
 ## *Arquivos 'Config'*
-- **Struct Config**
-- **configuracoes()**
-- **
+Explicação das funções contidas dentro da biblioteca Config:
+
+Struct Config
+
+| Função            | Descrição                                                  |
+|-------------------|------------------------------------------------------------|
+| `bool atividade_fogo()`  | Retorna true (1) caso ainda há árvores para serem queimadas.  |
+| `void configuracoes()` | Processa o arquivo Input.dat e armazena as informações nas variáveis globais; Inicializa o animal |
+| `int defVento()`     | Retorna um número de acordo com o caso de vento (tabela abaixo) |
+| `void inicio_animal()`    | Inicializa as variáveis do animal; Gera uma coordenada aleatória entre os 0 e 1 disponíveis na matriz para ser a posição inicial do animal na simulação |
+| `void prop(int x, int y, vector<pair<int,int>>& auxiliar)` | Confere se na posição (x, y) tem uma árvore saudável (1), se caso afirmativo, queima (2) e armazena no vetor |
+| `void propagacao()`     | Espalha o fogo de acordo com o caso de vento; Para todas as árvores que queimaram na iteração anterior (arv_1_2), pega os vizinhos possíveis e chama a função prop() para cada um; As árvores em arv_1_2 vão para o vetor arv_2_3 e as novas árvores queimadas são armazenadas em arv_1_2. |
+| `void queimada()`  | Define como queimadas (3) todas as árvores do vetor arv_2_3 |
+| `void salvar()`    | Salva a matriz e as informações do animal (passos, coordenada, escapes) |
+
+<div align="center">
+  
+***Tabela da função defVento():***
+| C | B | D | E | S  |
+|---|---|---|---|----|
+| 0 | 0 | 0 | 0 | 00 |
+| 0 | 0 | 0 | 1 | 01 |
+| 0 | 0 | 1 | 0 | 02 |
+| 0 | 0 | 1 | 1 | 03 |
+| 0 | 1 | 0 | 0 | 04 |
+| 0 | 1 | 0 | 1 | 05 |
+| 0 | 1 | 1 | 0 | 06 |
+| 0 | 1 | 1 | 1 | 07 |
+| 1 | 0 | 0 | 0 | 08 |
+| 1 | 0 | 0 | 1 | 09 |
+| 1 | 0 | 1 | 0 | 10 |
+| 1 | 0 | 1 | 1 | 11 |
+| 1 | 1 | 0 | 0 | 12 |
+| 1 | 1 | 0 | 1 | 13 |
+| 1 | 1 | 1 | 0 | 14 |
+| 1 | 1 | 1 | 1 | 00 |
+  
+</div>
+
+
 ## *Arquivos 'Simulator'*
+| Função            | Descrição                                                  |
+|-------------------|------------------------------------------------------------|
+| `void animal_agua()`  | Define a posição em 0 e as ortogonais em 1 (caso 3 do animal) |
+| `void animal_movim()`  | O animal possui 3 casos de movimento: quando tem fogo próximo (A), se ainda puder ficar parado (animCnt < 3) (B) ou quando ele deve se mexer (C); No caso A o animal prioriza células possíveis de movimento com água, no B soma mais uma iteração parado (animCnt++), e tanto no caso A quando não tem água para o animal ir quanto no caso C, a escolha de movimento é ir para a célula de menor risco (soma_pos() menor) |
+| `void escape()`  | Caso a posição do animal esteja queimando (2), ele vai para uma posição possível (0, 1 ou 4) |
+| `bool fog_prox(int x, int y)` | Retorna 1 caso tenha fogo (2) entre as posições entorno do animal |
+| `void inicializacao()` | Loop da simulação |
+| `int soma-pos(int x, int y)`  |   |
+| `void schrodinger()`    | Verifica se o animal está encurralado (morto), caso afirmativo as coordenas do animal são definidas como -1 e animVid em 0. |
+
 # Compilação, Entradas e Saídas
 ## Makefile
 O programa é executado por um Makefile, arquivo de texto que automatiza o processo de compilação, que interage com todos os arquivos dentro da pasta "src". 
@@ -124,7 +169,7 @@ A simulação salva cada iteração dentro de um "Output.dat", cada iteração g
 - Quantos passos o animal deu, desde o último momento em que ficou parado (0)
 - Quantas vezes o animal precisou de escapar do fogo (chama atingiu a célula em que o animal estava)
 - Coordenadas X e Y do animal
-  
+
 Exemplo de saída:
 
 <div align="center">
@@ -135,8 +180,7 @@ Exemplo de saída:
 1 1 1 1 4
 0 0 1 1 1
 1 4 1 0 4
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Info: 0 Passos 0 Escapes X: 3 Y 0
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Animal: 0 Passos, 0 Escapes, X: 3 Y: 0
 </pre>
 </div>
 
-# Referências
