@@ -78,7 +78,7 @@ O código é divido em duas bibliotecas:
 - **Config:** declaração as variáveis globais dentro da struct Config, funções de inicializar as variáveis, salvar as iterações e aquelas envolvendo o incêndio.
 - **Simulator:** contém a função 'main' do programa, que vai mantê-lo em loop, e as funções que envolvem a movimentação do animal.
 
-A leitura e escrita dos arquivos são feitas por meio da biblioteca [Archive]((https://github.com/msjujubr/Archives))
+A leitura e escrita dos arquivos são feitas por meio da biblioteca [Archive](https://github.com/msjujubr/Archives)
 em C++.
 ## *Arquivos 'Config'*
 Explicação das funções contidas dentro da biblioteca Config:
