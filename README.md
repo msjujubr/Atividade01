@@ -1,21 +1,25 @@
-</div>
-  <div style="display: flex; align-items: flex-start; gap: 20px;">
-  <img src="docs/imgs/incendio" width="200"/>
-  <div>
+<table>
+  <tr>
+    <td>
 
-  ### 📖 Sumário
-  - [Especificação do Problema](#especificação-do-problema)
-  - [O Algoritmo Desenvolvido](#algoritmo-desenvolvido)
-    - [Lógica Utilizada](#lógica-utilizada)
-    - [Arquivos 'Config'](#arquivos-config)
-    - [Arquivos 'Simulator'](#arquivos-simulator)
-  - [Compilação, Entradas e Saídas](#compilação-entradas-e-saídas)
-    - [MakeFile](#makefile)
-    - [Input.dat](#inputdat)
-    - [Output.dat](#outputdat)
-  - [Referências](#referencias)
-  </div>
+### 📖 Sumário
+- [Especificação do Problema](#especificação-do-problema)
+- [O Algoritmo Desenvolvido](#o-algoritmo-desenvolvido)
+  - [Lógica Utilizada](#lógica-utilizada)
+  - [Arquivos 'Config'](#arquivos-config)
+  - [Arquivos 'Simulator'](#arquivos-simulator)
+- [Compilação, Entradas e Saídas](#compilação-entradas-e-saídas)
+  - [MakeFile](#makefile)
+  - [Input.dat](#inputdat)
+  - [Output.dat](#outputdat)
+- [Referências](#referências)
 
+    </td>
+    <td>
+      <img src="docs/imgs/incendio.png" width="200">
+    </td>
+  </tr>
+</table>
 </div>
 
 ## Especificação do Problema
