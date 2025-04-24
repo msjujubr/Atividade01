@@ -1,28 +1,19 @@
-# Simulação de Propagação de Incêndios
-- [Especificação do Problema](#especificação-do-problema)
-- [O Algoritmo Desenvolvido](#algoritmo-desenvolvido)
-  - [Lógica Utilizada](#lógica-utilizada)
-  - [Arquivos 'Config'](#arquivos-config)
-  - [Arquivos 'Simulator'](#arquivos-simulator)
-- [Compilação, Entradas e Saídas](#compilação-entradas-e-saídas)
-  - [MakeFile](#makefile)
-  - [Input.dat](#inputdat)
-  - [Output.dat](#outputdat)
-- [Referências](#referencias)
-
-<div style="display: flex; align-items: flex-start; gap: 20px;">
-
-  <img src="Atividade01/imgs/esquilo_fogo.png" alt="Descrição da imagem" width="200"/>
-
+</div>
+  <div style="display: flex; align-items: flex-start; gap: 20px;">
+  <img src="docs/imgs/esquilo_fogo.png" width="200"/>
   <div>
 
   ### 📖 Sumário
-  - [Introdução](#introdução)
-  - [Instalação](#instalação)
-  - [Como Usar](#como-usar)
-  - [Estrutura do Projeto](#estrutura-do-projeto)
-  - [Licença](#licença)
-
+  - [Especificação do Problema](#especificação-do-problema)
+  - [O Algoritmo Desenvolvido](#algoritmo-desenvolvido)
+    - [Lógica Utilizada](#lógica-utilizada)
+    - [Arquivos 'Config'](#arquivos-config)
+    - [Arquivos 'Simulator'](#arquivos-simulator)
+  - [Compilação, Entradas e Saídas](#compilação-entradas-e-saídas)
+    - [MakeFile](#makefile)
+    - [Input.dat](#inputdat)
+    - [Output.dat](#outputdat)
+  - [Referências](#referencias)
   </div>
 
 </div>
