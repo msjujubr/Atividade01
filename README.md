@@ -1,6 +1,6 @@
 </div>
   <div style="display: flex; align-items: flex-start; gap: 20px;">
-  <img src="docs/imgs/esquilo_fogo.png" width="200"/>
+  <img src="docs/imgs/incendio" width="200"/>
   <div>
 
   ### 📖 Sumário
