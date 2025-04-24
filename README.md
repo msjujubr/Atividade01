@@ -10,6 +10,23 @@
   - [Output.dat](#outputdat)
 - [Referências](#referencias)
 
+<div style="display: flex; align-items: flex-start; gap: 20px;">
+
+  <img src="Atividade01/imgs/esquilo_fogo.png" alt="Descrição da imagem" width="200"/>
+
+  <div>
+
+  ### 📖 Sumário
+  - [Introdução](#introdução)
+  - [Instalação](#instalação)
+  - [Como Usar](#como-usar)
+  - [Estrutura do Projeto](#estrutura-do-projeto)
+  - [Licença](#licença)
+
+  </div>
+
+</div>
+
 ## Especificação do Problema
 Este programa consiste na implementação de um simulador de propagação de incêndios em matrizes, incrementando a movimentação de um animal.  
 Tendo a matriz original contida em um arquivo *input.dat*, com a primeira linha informando a proporção da matriz e a localização do foco do incêndio, onde cada algarismo representa um estado de simulação:
