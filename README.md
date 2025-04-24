@@ -1,10 +1,14 @@
+# Simulação de Incêncio com Movimentação de uma Variável
+
+<div align="center">
+ 
 <table>
   <tr>
     <td>
 
 ### 📖 Sumário
 - [Especificação do Problema](#especificação-do-problema)
-- [O Algoritmo Desenvolvido](#o-algoritmo-desenvolvido)
+- [Algoritmo Desenvolvido](#algoritmo-desenvolvido)
   - [Lógica Utilizada](#lógica-utilizada)
   - [Arquivos 'Config'](#arquivos-config)
   - [Arquivos 'Simulator'](#arquivos-simulator)
@@ -16,10 +20,11 @@
 
     </td>
     <td>
-      <img src="docs/imgs/incendio.png" width="200">
+      <img src="docs/imgs/incendio" width="300">
     </td>
   </tr>
 </table>
+
 </div>
 
 ## Especificação do Problema
@@ -55,7 +60,7 @@ acima e abaixo).
 > &nbsp;&nbsp;&nbsp;&nbsp;**5)** O processo de propagação do incêndio continua até que não haja mais árvores em
 chamas (2) ou que o número máximo de interações, K, seja alcançado.
 > 
-Dentro desta matriz, há um animal, representado por uma variável externa (escolhi o valor 8), que deve procurar uma posição segura. Sua movimentação segue as seguintes regras:
+Dentro desta matriz, há um animal, representado por uma variável externa, que deve procurar uma posição segura. Sua movimentação segue as seguintes regras:
 >  &nbsp;&nbsp;&nbsp;&nbsp;**1)** O animal, quando localizado em uma posição segura (valor 1 ou 0), deve procurar uma nova posição segura nas direções ortogonais, as posições são classificadas da seguinte forma:
 >
 >  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(a) Melhor opção:* posição com valor 4 (presença de água).
