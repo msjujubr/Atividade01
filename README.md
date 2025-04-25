@@ -1,16 +1,13 @@
 # Simulação de Incêncio com Movimentação de um Animal
 Este programa consiste na implementação de um simulador de propagação de incêndios em matrizes, incrementando a movimentação de um animal.  
 
-<div align="center">
+<div align="center"> <table> <tr> <td>
  
-<table>
-  <tr>
-    <td>
-
 ### 📖 Sumário
 - [Especificação do Problema](#especificação-do-problema)
 - [O Algoritmo](#o-algoritmo)
   - [Lógica Utilizada](#lógica-utilizada)
+  - [Comportamento](#comportamento)
   - [Arquivos 'Config'](#arquivos-config)
   - [Arquivos 'Simulator'](#arquivos-simulator)
 - [Compilação, Entradas e Saídas](#compilação-entradas-e-saídas)
@@ -19,14 +16,11 @@ Este programa consiste na implementação de um simulador de propagação de inc
   - [Output.dat](#outputdat)
 - [Referências](#referências)
 
-    </td>
-    <td>
-      <img src="docs/imgs/incendio" width="300">
-    </td>
-  </tr>
-</table>
+</td> <td>
 
-</div>
+ <img src="docs/imgs/incendio" width="300">
+
+</td> </tr> </table> </div>
 
 ## Especificação do Problema
 
@@ -78,17 +72,9 @@ nesta posição por até 3 interações.
 > &nbsp;&nbsp;&nbsp;&nbsp;**4)** Caso o fogo chegue na célula em que o animal se encontra, ele ganha uma nova oportunidade de movimento.
 >
 > &nbsp;&nbsp;&nbsp;&nbsp;**5)** O animal morre quando, em todas as possíveis posições para ele andar houver árvores queimando (2).
-> 
+>
+
 # O Algoritmo
-## Comportamento
-Assim como no [Jogo da Vida][1] (J. Conway, 1970), a propagação do fogo na matriz é baseada em *Autômatos Celulares*, um modelo computacional introduzido por John von Neumann e amplamente explorado por Stephen Wolfram em sua obra: [A New Kind of Science (2002)][2], . Autômatos celulares consistem em células organizadas em uma grade, onde cada célula possui um estado (como “árvore”, “fogo” ou “zona segura”) e evolui ao longo do tempo de acordo com regras locais e discretas. Essa abordagem é ideal para simular fenômenos naturais como incêndios florestais, ou condições de vida, em que depende do estado das células vizinhas.
-
-Dentro desse ambiente simulado, é introduzido um agente adaptativo, o animal, que percebe o ambiente e age com o objetivo de fugir do fogo. Esse agente é modelado segundo os princípios de *Sistemas Multiagentes*, conforme descrito também por Wooldridge em sua obra: Um agente é uma entidade autônoma que interage com o ambiente, baseando suas ações em percepções locais e metas individuais. No contexto do código, o agente é o animal que percebe o fogo próximo e tentar fugir dele. 
-
-Essa modelagem, a interação entre a floresta (ambiente) e o animel (agente) é um exemplo de *ABM (Agent-Based Modeling - ABM)*, uma técnica popularizada por Epstein & Axtell em Growing Artificial Societies (1996). ABMs permitem que comportamentos simples em nível individual gerem padrões complexos e realistas em nível coletivo ou ambiental, sendo amplamente utilizadas em simulações ecológicas e sociais.
-
-<div align="center"> <img src="docs/imgs/Gospers_glider_gun.gif" width="300"> </div>
-
 ## *Lógica Utilizada*
 Para o problema proposto, o programa segue a seguinte ordem:
 
@@ -108,6 +94,15 @@ O código é divido em duas bibliotecas:
 
 A leitura e escrita dos arquivos são feitas por meio da biblioteca [Archive](https://github.com/msjujubr/Archives)
 em C++.
+
+## Comportamento
+Assim como no [Jogo da Vida][1] (J. Conway, 1970), a propagação do fogo na matriz é baseada em *Autômatos Celulares*, um modelo computacional introduzido por John von Neumann e amplamente explorado por Stephen Wolfram em sua obra: [A New Kind of Science (2002)][2]. Autômatos celulares consistem em células organizadas em uma grade, onde cada célula possui um estado (como “árvore”, “fogo” ou “zona segura” dentro da matriz "floresta") e evolui ao longo do tempo de acordo com regras locais e discretas. Essa abordagem é ideal para simular fenômenos naturais como incêndios florestais, ou condições de vida como no jogo do Conway, em que cada célula depende do estado de suas vizinhas.
+
+Dentro desse ambiente simulado, é introduzido um agente adaptativo, o animal, que percebe o ambiente e age com o objetivo de fugir do fogo. Esse agente é modelado segundo os princípios de *Sistemas Multiagentes*, conforme descrito por Wooldridge em sua obra [An Introduction to MultiAgent Systems (2002)][3]: Um agente é uma entidade autônoma que interage com o ambiente, baseando suas ações em percepções locais e metas individuais. No contexto do código, o agente é o animal que percebe o fogo próximo e tentar fugir dele. 
+
+Essa modelagem, a interação entre a floresta (ambiente) e o animel (agente) é um exemplo de *ABM (Agent-Based Modeling - ABM)*, uma técnica popularizada por Epstein & Axtell em Growing Artificial Societies (1996). ABMs permitem que comportamentos simples em nível individual gerem padrões complexos e realistas em nível coletivo ou ambiental, sendo amplamente utilizadas em simulações ecológicas e sociais.
+
+<div align="center"> <img src="docs/imgs/Gospers_glider_gun.gif" width="300"> </div>
 
 ## *Arquivos 'Config'*
 Explicação das funções contidas dentro da biblioteca Config:
@@ -218,5 +213,6 @@ Exemplo de saída:
 - [Documento Prática](docs/documento_atividade01.pdf)
 - [1]: https://youtu.be/NqUSJWec3pM?si=C33oaYJOJ01Xs7y5  
   *Vídeo do Cosmopolita explicando o Jogo da Vida*
-- [2]: https://archive.org/details/a-new-kind-of-science-stephen-wolfram-z-lib.org/page/n5/mode/2up  
+- [2]: https://archive.org/details/a-new-kind-of-science-stephen-wolfram-z-lib.org/mode/2up
   *Livro completo: A New Kind of Science – Stephen Wolfram (2002)*
+- [3]: https://github.com/MasterGos/magisterka/blob/master/Materialy%20z%20sieci/AOP/Wiley%20-%20Wooldridge,%20An%20Introduction%20to%20Multi%20Agent%20Systems%20(OCR%20guaranteed%20on%20full%20book).pdf
