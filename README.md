@@ -7,9 +7,9 @@ Este programa consiste na implementação de um simulador de propagação de inc
 - [Especificação do Problema](#especificação-do-problema)
 - [O Algoritmo](#o-algoritmo)
   - [Lógica Utilizada](#lógica-utilizada)
-  - [Comportamento](#comportamento)
   - [Arquivos 'Config'](#arquivos-config)
   - [Arquivos 'Simulator'](#arquivos-simulator)
+  - [Comportamento](#comportamento)
 - [Compilação, Entradas e Saídas](#compilação-entradas-e-saídas)
   - [MakeFile](#makefile)
   - [Input.dat](#inputdat)
@@ -95,15 +95,6 @@ O código é divido em duas bibliotecas:
 A leitura e escrita dos arquivos são feitas por meio da biblioteca [Archive](https://github.com/msjujubr/Archives)
 em C++.
 
-## Comportamento
-Assim como no [Jogo da Vida][1] (J. Conway, 1970), a propagação do fogo na matriz é baseada em *Autômatos Celulares*, um modelo computacional introduzido por John von Neumann e amplamente explorado por Stephen Wolfram em sua obra: [A New Kind of Science (2002)][2]. Autômatos celulares consistem em células organizadas em uma grade, onde cada célula possui um estado (como “árvore”, “fogo” ou “zona segura” dentro da matriz "floresta") e evolui ao longo do tempo de acordo com regras locais e discretas. Essa abordagem é ideal para simular fenômenos naturais como incêndios florestais, ou condições de vida como no jogo do Conway, em que cada célula depende do estado de suas vizinhas.
-
-Dentro desse ambiente simulado, é introduzido um agente adaptativo, o animal, que percebe o ambiente e age com o objetivo de fugir do fogo. Esse agente é modelado segundo os princípios de *Sistemas Multiagentes*, conforme descrito por Wooldridge em sua obra [An Introduction to MultiAgent Systems (2002)][3]: Um agente é uma entidade autônoma que interage com o ambiente, baseando suas ações em percepções locais e metas individuais. No contexto do código, o agente é o animal que percebe o fogo próximo e tentar fugir dele. 
-
-Essa modelagem, a interação entre a floresta (ambiente) e o animel (agente) é um exemplo de *ABM (Agent-Based Modeling - ABM)*, uma técnica popularizada por Epstein & Axtell em Growing Artificial Societies (1996). ABMs permitem que comportamentos simples em nível individual gerem padrões complexos e realistas em nível coletivo ou ambiental, sendo amplamente utilizadas em simulações ecológicas e sociais.
-
-<div align="center"> <img src="docs/imgs/Gospers_glider_gun.gif" width="300"> </div>
-
 ## *Arquivos 'Config'*
 Explicação das funções contidas dentro da biblioteca Config:
 
@@ -155,6 +146,16 @@ Struct Config
 | `void inicializacao()` | Loop da simulação |
 | `int soma-pos(int x, int y)`  |   |
 | `void schrodinger()`    | Verifica se o animal está encurralado (morto), caso afirmativo as coordenas do animal são definidas como -1 e animVid em 0. |
+
+
+## Comportamento
+Assim como no [Jogo da Vida][1] (J. Conway, 1970), a propagação do fogo na matriz é baseada em *Autômatos Celulares*, um modelo computacional introduzido por John von Neumann e amplamente explorado por Stephen Wolfram em sua obra: [A New Kind of Science (2002)][2]. Autômatos celulares consistem em células organizadas em uma grade, onde cada célula possui um estado (como “árvore”, “fogo” ou “zona segura” dentro da matriz "floresta") e evolui ao longo do tempo de acordo com regras locais e discretas. Essa abordagem é ideal para simular fenômenos naturais como incêndios florestais, ou condições de vida como no jogo do Conway, em que cada célula depende do estado de suas vizinhas.
+
+Dentro desse ambiente simulado, é introduzido um agente adaptativo, o animal, que percebe o ambiente e age com o objetivo de fugir do fogo. Esse agente é modelado segundo os princípios de *Sistemas Multiagentes*, conforme descrito por Wooldridge em sua obra [An Introduction to MultiAgent Systems (2002)][3]: Um agente é uma entidade autônoma que interage com o ambiente, baseando suas ações em percepções locais e metas individuais. No contexto do código, o agente é o animal que percebe o fogo próximo e tentar fugir dele. 
+
+Essa modelagem, a interação entre a floresta (ambiente) e o animel (agente) é um exemplo de *ABM (Agent-Based Modeling - ABM)*, uma técnica popularizada por Epstein & Axtell em Growing Artificial Societies (1996). ABMs permitem que comportamentos simples em nível individual gerem padrões complexos e realistas em nível coletivo ou ambiental, sendo amplamente utilizadas em simulações ecológicas e sociais.
+
+<div align="center"> <img src="docs/imgs/Gospers_glider_gun.gif" width="300"> </div>
 
 # Compilação, Entradas e Saídas
 ## Makefile
