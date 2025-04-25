@@ -75,6 +75,9 @@ nesta posição por até 3 interações.
 >
 
 # O Algoritmo
+
+<div align="center"> <img src="docs/imgs/girl_coding" width="300"> </div>
+
 ## *Lógica Utilizada*
 Para o problema proposto, o programa segue a seguinte ordem:
 
