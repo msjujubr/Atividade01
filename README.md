@@ -81,7 +81,7 @@ nesta posição por até 3 interações.
 > 
 # O Algoritmo
 ## Comportamento
-Assim como no [Jogo da Vida](1) (J. Conway, 1970), a propagação do fogo na matriz é baseada em *Autômatos Celulares*, um modelo computacional introduzido por John von Neumann e amplamente explorado por Stephen Wolfram em sua obra: [A New Kind of Science (2002)](2). Autômatos celulares consistem em células organizadas em uma grade, onde cada célula possui um estado (como “árvore”, “fogo” ou “zona segura”) e evolui ao longo do tempo de acordo com regras locais e discretas. Essa abordagem é ideal para simular fenômenos naturais como incêndios florestais, ou condições de vida, em que depende do estado das células vizinhas.
+Assim como no [Jogo da Vida][1] (J. Conway, 1970), a propagação do fogo na matriz é baseada em *Autômatos Celulares*, um modelo computacional introduzido por John von Neumann e amplamente explorado por Stephen Wolfram em sua obra: [A New Kind of Science (2002)][2], . Autômatos celulares consistem em células organizadas em uma grade, onde cada célula possui um estado (como “árvore”, “fogo” ou “zona segura”) e evolui ao longo do tempo de acordo com regras locais e discretas. Essa abordagem é ideal para simular fenômenos naturais como incêndios florestais, ou condições de vida, em que depende do estado das células vizinhas.
 
 Dentro desse ambiente simulado, é introduzido um agente adaptativo, o animal, que percebe o ambiente e age com o objetivo de fugir do fogo. Esse agente é modelado segundo os princípios de *Sistemas Multiagentes*, conforme descrito também por Wooldridge em sua obra: Um agente é uma entidade autônoma que interage com o ambiente, baseando suas ações em percepções locais e metas individuais. No contexto do código, o agente é o animal que percebe o fogo próximo e tentar fugir dele. 
 
@@ -216,5 +216,7 @@ Exemplo de saída:
 
 # Referências
 - [Documento Prática](docs/documento_atividade01.pdf)
-- [1]: [Vídeo do Cosmopolita](https://youtu.be/NqUSJWec3pM?si=C33oaYJOJ01Xs7y5)
-- [2]: [Stephen Wolfram – A New Kind of Science (2002)](https://archive.org/details/a-new-kind-of-science-stephen-wolfram-z-lib.org/page/n5/mode/2up)
+- [1]: https://youtu.be/NqUSJWec3pM?si=C33oaYJOJ01Xs7y5  
+  *Vídeo do Cosmopolita explicando o Jogo da Vida*
+- [2]: https://archive.org/details/a-new-kind-of-science-stephen-wolfram-z-lib.org/page/n5/mode/2up  
+  *Livro completo: A New Kind of Science – Stephen Wolfram (2002)*
