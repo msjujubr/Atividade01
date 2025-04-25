@@ -12,6 +12,7 @@ Coisas para corrigir:
 - deixar mais notório a introdução
 - colocar o link na função  para a devida parte no código
 - montar a struct no readme!
+- desenvolver um fluxograma
 
 
 
