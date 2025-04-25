@@ -9,7 +9,7 @@ Este programa consiste na implementação de um simulador de propagação de inc
 
 ### 📖 Sumário
 - [Especificação do Problema](#especificação-do-problema)
-- [Algoritmo Desenvolvido](#algoritmo-desenvolvido)
+- [O Algoritmo](#o-algoritmo)
   - [Lógica Utilizada](#lógica-utilizada)
   - [Arquivos 'Config'](#arquivos-config)
   - [Arquivos 'Simulator'](#arquivos-simulator)
@@ -79,9 +79,11 @@ nesta posição por até 3 interações.
 >
 > &nbsp;&nbsp;&nbsp;&nbsp;**5)** O animal morre quando, em todas as possíveis posições para ele andar houver árvores queimando (2).
 > 
-# Algoritmo Desenvolvido
+# O Algoritmo
 ## Comportamento
 Similar ao jogo da vida
+
+<div align="center"> <img src="docs/imgs/Gospers_glider_gun.gif" width="300"> </div>
 
 ## *Lógica Utilizada*
 Para o problema proposto, o programa segue a seguinte ordem:
