@@ -81,7 +81,7 @@ nesta posição por até 3 interações.
 > 
 # O Algoritmo
 ## Comportamento
-Similar ao jogo da vida
+Assim como o [Jogo da Vida](https://github.com/msjujubr/Archives) (J. Conway, 1970)
 
 <div align="center"> <img src="docs/imgs/Gospers_glider_gun.gif" width="300"> </div>
 
