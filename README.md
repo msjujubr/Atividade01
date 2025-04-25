@@ -1,4 +1,5 @@
 # Simulação de Incêncio com Movimentação de um Animal
+Este programa consiste na implementação de um simulador de propagação de incêndios em matrizes, incrementando a movimentação de um animal.  
 
 <div align="center">
  
@@ -28,8 +29,8 @@
 </div>
 
 ## Especificação do Problema
-Este programa consiste na implementação de um simulador de propagação de incêndios em matrizes, incrementando a movimentação de um animal.  
-Tendo a matriz original contida em um arquivo *input.dat*, com a primeira linha informando a proporção da matriz e a localização do foco do incêndio, onde cada algarismo representa um estado de simulação:
+
+Tendo a matriz original contida em um arquivo *input.dat*, com a primeira linha com informações sobre a matriz, cada algarismo representa um estado de simulação:
 
 >  &nbsp;&nbsp;&nbsp;&nbsp;0 -> Área vazia (não queima)
 > 
@@ -37,7 +38,7 @@ Tendo a matriz original contida em um arquivo *input.dat*, com a primeira linha 
 > 
 >  &nbsp;&nbsp;&nbsp;&nbsp;2 -> Árvore em chamas
 > 
->  &nbsp;&nbsp;&nbsp;&nbsp;3 -> Árvore queimada (não propaga mais fogo, árvore totalmente queimada)
+>  &nbsp;&nbsp;&nbsp;&nbsp;3 -> Árvore queimada (não propaga mais fogo)
 > 
 >  &nbsp;&nbsp;&nbsp;&nbsp;4 -> Presença de água
 
@@ -76,7 +77,8 @@ nesta posição por até 3 interações.
 >
 > &nbsp;&nbsp;&nbsp;&nbsp;**4)** Caso o fogo chegue na célula em que o animal se encontra, ele ganha uma nova oportunidade de movimento.
 >
-> &nbsp;&nbsp;&nbsp;&nbsp;**5)** O animal morre quando, em todas as possíveis posições para ele andar houver queima (2). 
+> &nbsp;&nbsp;&nbsp;&nbsp;**5)** O animal morre quando, em todas as possíveis posições para ele andar houver árvores queimando (2).
+> 
 # Algoritmo Desenvolvido
 ## *Lógica Utilizada*
 Para o problema proposto, o programa segue a seguinte ordem:
