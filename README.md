@@ -93,8 +93,6 @@ nesta posição por até 3 interações.
 
 # O Algoritmo
 
-<div align="center"> <img src="docs/imgs/girl_coding" width="300"> </div>
-
 ## *Lógica Utilizada*
 Para o problema proposto, o programa segue a seguinte ordem:
 
@@ -155,7 +153,7 @@ Struct Config
   
 </td> <td>
 
- <img src="docs/imgs/girl_coding" width="300">
+ <img src="docs/imgs/vento.gif" width="300">
 
 </td> </tr> </table> </div>
 
@@ -251,7 +249,8 @@ Exemplo de saída:
   *Link do GitHub do magisterka com o livro: An Introduction to Multi Agent Systems - Michael Wooldridge*
 - [4]: https://direct.mit.edu/books/monograph/2503/Growing-Artificial-SocietiesSocial-Science-from
   *Livro no MIT Press: Growing Artificial Societies: Social Science from the Bottom Up (1996)*
-## Canais de Comunicação
+## Autora
+colocar foto e informações sobre mim
 <div> 
   <a href="https://www.youtube.com/@msjujubr" target="_blank"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" target="_blank"></a>
   <a href="https://instagram.com/msjujubr" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
