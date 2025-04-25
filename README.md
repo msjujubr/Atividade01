@@ -151,11 +151,12 @@ Struct Config
 ## Comportamento
 Assim como no [Jogo da Vida][1] (J. Conway, 1970), a propagação do fogo na matriz é baseada em *Autômatos Celulares*, um modelo computacional introduzido por John von Neumann e amplamente explorado por Stephen Wolfram em sua obra: [A New Kind of Science (2002)][2]. Autômatos celulares consistem em células organizadas em uma grade, onde cada célula possui um estado (como “árvore”, “fogo” ou “zona segura” dentro da matriz "floresta") e evolui ao longo do tempo de acordo com regras locais e discretas. Essa abordagem é ideal para simular fenômenos naturais como incêndios florestais, ou condições de vida como no jogo do Conway, em que cada célula depende do estado de suas vizinhas.
 
+<div align="center"> <img src="docs/imgs/Gospers_glider_gun.gif" width="300"> </div>
+
 Dentro desse ambiente simulado, é introduzido um agente adaptativo, o animal, que percebe o ambiente e age com o objetivo de fugir do fogo. Esse agente é modelado segundo os princípios de *Sistemas Multiagentes*, conforme descrito por Wooldridge em sua obra [An Introduction to MultiAgent Systems (2002)][3]: Um agente é uma entidade autônoma que interage com o ambiente, baseando suas ações em percepções locais e metas individuais. No contexto do código, o agente é o animal que percebe o fogo próximo e tentar fugir dele. 
 
-Essa modelagem, a interação entre a floresta (ambiente) e o animel (agente) é um exemplo de *ABM (Agent-Based Modeling - ABM)*, uma técnica popularizada por Epstein & Axtell em Growing Artificial Societies (1996). ABMs permitem que comportamentos simples em nível individual gerem padrões complexos e realistas em nível coletivo ou ambiental, sendo amplamente utilizadas em simulações ecológicas e sociais.
+Essa modelagem, a interação entre a floresta (ambiente) e o animel (agente) é um exemplo de *ABM (Agent-Based Modeling - ABM)*, uma técnica popularizada por Epstein & Axtell em [Growing Artificial Societies (1996)][4], onde introduz o modelo computacional conhecido como Sugarscape, uma simulação baseada em agentes que demonstra como comportamentos sociais complexos podem emergir de interações simples entre indivíduos em um ambiente artificial.. ABMs permitem que comportamentos simples em nível individual gerem padrões complexos e realistas em nível coletivo ou ambiental, sendo amplamente utilizadas em simulações ecológicas e sociais.
 
-<div align="center"> <img src="docs/imgs/Gospers_glider_gun.gif" width="300"> </div>
 
 # Compilação, Entradas e Saídas
 ## Makefile
@@ -217,3 +218,6 @@ Exemplo de saída:
 - [2]: https://archive.org/details/a-new-kind-of-science-stephen-wolfram-z-lib.org/mode/2up
   *Livro completo: A New Kind of Science – Stephen Wolfram (2002)*
 - [3]: https://github.com/MasterGos/magisterka/blob/master/Materialy%20z%20sieci/AOP/Wiley%20-%20Wooldridge,%20An%20Introduction%20to%20Multi%20Agent%20Systems%20(OCR%20guaranteed%20on%20full%20book).pdf
+  *Link do GitHub do magisterka com o livro: An Introduction to Multi Agent Systems - Michael Wooldridge*
+- [4]: https://direct.mit.edu/books/monograph/2503/Growing-Artificial-SocietiesSocial-Science-from
+  *Livro no MIT Press: Growing Artificial Societies: Social Science from the Bottom Up (1996)*
