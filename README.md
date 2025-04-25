@@ -219,13 +219,9 @@ Exemplo de entrada:
 Mesmo que, na matriz de entrada, não esteja definido como 2 a posição do fogo, o programa irá considerar aquela célula como queimando (2) e, a partir da iteração 1, será possível observar a propagação no arquivo de saída.
 
 ## Output.dat
-A simulação salva cada iteração dentro de um "Output.dat", cada iteração guarda os seguintes elementos:
-- Nova matriz (com a propagação do fogo)
-- Quantos passos o animal deu, desde o último momento em que ficou parado (0)
-- Quantas vezes o animal precisou escapar do fogo (chama atingiu a célula em que o animal estava)
-- Coordenadas X e Y do animal
+A simulação salva cada iteração dentro de um "Output.dat", cada iteração guarda a nova matriz (com a propagação do fogo) e as coordenadas do animal naquela iteração. Ao final da simulação, o arquivo de saída guarda um relatório final do animal, armazenando a quantidade de passos e o estado de vida do animal.   
 
-Exemplo de saída:
+Exemplo de saída a cada iteração:
 
 <div align="center">
 <pre>
@@ -238,6 +234,8 @@ Exemplo de saída:
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Animal: 0 Passos, 0 Escapes, X: 3 Y: 0
 </pre>
 </div>
+
+Exemplo de relatório final:
 
 # Referências
 - [Documento Prática](docs/documento_atividade01.pdf)
