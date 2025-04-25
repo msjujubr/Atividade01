@@ -1,5 +1,19 @@
 # Simulação de Incêncio com Movimentação de um Animal
-Este programa consiste na implementação de um simulador de propagação de incêndios em matrizes, incrementando a movimentação de um animal.  
+<div style="display: inline-block;"> 
+<img align="center" height="20px" width="60px" src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white"/> 
+<img align="center" height="20px" width="80px" src="https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg"/> 
+</div>
+
+**Docente:** Michel Pires da Silva ([mpiress](https://github.com/mpiress))
+
+**Discente:** Júlia de Moura Souza (Engenharia de Computação - CEFETMG)
+
+Coisas para corrigir:
+- deixar mais notório a introdução
+- colocar o link na função  para a devida parte no código
+- montar a struct no readme!
+
+
 
 <div align="center"> <table> <tr> <td>
  
@@ -23,7 +37,7 @@ Este programa consiste na implementação de um simulador de propagação de inc
 </td> </tr> </table> </div>
 
 ## Especificação do Problema
-
+Este programa consiste na implementação de um simulador de propagação de incêndios em matrizes, incrementando a movimentação de um animal. 
 Tendo a matriz original contida em um arquivo *input.dat*, com a primeira linha com informações sobre a matriz, cada algarismo representa um estado de simulação:
 
 >  &nbsp;&nbsp;&nbsp;&nbsp;0 -> Área vazia (não queima)
@@ -224,3 +238,11 @@ Exemplo de saída:
   *Link do GitHub do magisterka com o livro: An Introduction to Multi Agent Systems - Michael Wooldridge*
 - [4]: https://direct.mit.edu/books/monograph/2503/Growing-Artificial-SocietiesSocial-Science-from
   *Livro no MIT Press: Growing Artificial Societies: Social Science from the Bottom Up (1996)*
+## Canais de Comunicação
+<div> 
+  <a href="https://www.youtube.com/@msjujubr" target="_blank"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" target="_blank"></a>
+  <a href="https://instagram.com/msjujubr" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
+ 	<a href="https://www.twitch.tv/msjujubr" target="_blank"><img src="https://img.shields.io/badge/Twitch-9146FF?style=for-the-badge&logo=twitch&logoColor=white" target="_blank"></a>
+  <a href = "mailto:juliamourasouza10@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+  <a href="https://www.linkedin.com/in/msjujubr/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
+</div>
