@@ -96,6 +96,7 @@ nesta posição por até 3 interações.
 ## *Lógica Utilizada*
 Para o problema proposto, o programa segue a seguinte ordem:
 
+#### criar o fluxograma seguindo as ordem abaixo (detalhar mais), e colocar aqui! 
 - Inicializar variáveis (matriz, posições do fogo, posição do animal) 
 - Começar a simulação
   - Movimentação do animal
