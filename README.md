@@ -13,6 +13,8 @@ Coisas para corrigir:
 - colocar o link na função  para a devida parte no código
 - montar a struct no readme!
 - desenvolver um fluxograma
+- computar, ao final do programa, a vida do animal, quantidades de passos
+
 
 
 
@@ -129,8 +131,8 @@ Struct Config
 | `void queimada()`  | Define como queimadas (3) todas as árvores do vetor arv_2_3 |
 | `void salvar()`    | Salva a matriz e as informações do animal (passos, coordenada, escapes) |
 
-<div align="center">
-  
+<div align="center"> <table> <tr> <td>
+ 
 ***Tabela da função defVento():***
 | C | B | D | E | S  |
 |---|---|---|---|----|
@@ -151,6 +153,16 @@ Struct Config
 | 1 | 1 | 1 | 0 | 14 |
 | 1 | 1 | 1 | 1 | 00 |
   
+</td> <td>
+
+ <img src="docs/imgs/girl_coding" width="300">
+
+</td> </tr> </table> </div>
+
+
+<div align="center">
+  
+
 </div>
 
 
