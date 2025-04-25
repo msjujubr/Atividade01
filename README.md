@@ -1,8 +1,8 @@
 # Simulação de Incêncio com Movimentação de um Animal
-<div style="display: inline-block;"> 
-<img align="center" height="20px" width="60px" src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white"/> 
-<img align="center" height="20px" width="80px" src="https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg"/> 
-</div>
+![C++](https://img.shields.io/badge/Linguagem-C++-green.svg)
+![Make](https://img.shields.io/badge/Compilacao-Make-orange)
+![VSCode](https://img.shields.io/badge/IDE-VSCode-informational)
+![ISO](https://img.shields.io/badge/ISO-Linux-blueviolet)
 
 **Docente:** Michel Pires da Silva ([mpiress](https://github.com/mpiress))
 
@@ -167,7 +167,7 @@ Struct Config
 ## *Arquivos 'Simulator'*
 | Função            | Descrição                                                  |
 |-------------------|------------------------------------------------------------|
-| `void animal_agua()`  | Define a posição em 0 e as ortogonais em 1 (caso 3 do animal) |
+| `[void animal_agua()](https://github.com/danieldiv/repositorio-algoritimos/blob/main/src/util/arquivo.cpp#L13)`  | Define a posição em 0 e as ortogonais em 1 (caso 3 do animal) |
 | `void animal_movim()`  | O animal possui 3 casos de movimento: quando tem fogo próximo (A), se estiver em uma zona segura (0) e puder ficar nela (animCnt < 3) (B) ou quando ele deve se mexer (C); No caso A o animal prioriza células possíveis de movimento com água, no B soma mais uma iteração parado (animCnt++), e tanto no caso A quando não tem água para o animal ir quanto no caso C, a escolha de movimento é ir para a célula de menor risco (soma_pos() menor) |
 | `void escape()`  | Caso a posição do animal esteja queimando (2), ele vai para uma posição possível (0, 1 ou 4) |
 | `bool fog_prox(int x, int y)` | Retorna 1 caso tenha fogo (2) entre as posições entorno do animal |
