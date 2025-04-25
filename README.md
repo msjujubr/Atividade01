@@ -143,11 +143,11 @@ Struct Config
 | Função            | Descrição                                                  |
 |-------------------|------------------------------------------------------------|
 | `void animal_agua()`  | Define a posição em 0 e as ortogonais em 1 (caso 3 do animal) |
-| `void animal_movim()`  | O animal possui 3 casos de movimento: quando tem fogo próximo (A), se ainda puder ficar parado (animCnt < 3) (B) ou quando ele deve se mexer (C); No caso A o animal prioriza células possíveis de movimento com água, no B soma mais uma iteração parado (animCnt++), e tanto no caso A quando não tem água para o animal ir quanto no caso C, a escolha de movimento é ir para a célula de menor risco (soma_pos() menor) |
+| `void animal_movim()`  | O animal possui 3 casos de movimento: quando tem fogo próximo (A), se estiver em uma zona segura (0) e puder ficar nela (animCnt < 3) (B) ou quando ele deve se mexer (C); No caso A o animal prioriza células possíveis de movimento com água, no B soma mais uma iteração parado (animCnt++), e tanto no caso A quando não tem água para o animal ir quanto no caso C, a escolha de movimento é ir para a célula de menor risco (soma_pos() menor) |
 | `void escape()`  | Caso a posição do animal esteja queimando (2), ele vai para uma posição possível (0, 1 ou 4) |
 | `bool fog_prox(int x, int y)` | Retorna 1 caso tenha fogo (2) entre as posições entorno do animal |
 | `void inicializacao()` | Loop da simulação |
-| `int soma-pos(int x, int y)`  |   |
+| `int soma-pos(int x, int y)`  | Retorna o somatório das células nas posições entorno a coordenada (x,y), considerando a célula de água como zona segura (4 = 0)  |
 | `void schrodinger()`    | Verifica se o animal está encurralado (morto), caso afirmativo as coordenas do animal são definidas como -1 e animVid em 0. |
 
 
