@@ -118,6 +118,8 @@ Explicação das funções contidas dentro da biblioteca Config:
 
 Struct Config
 
+[bool atividade_fogo()](https://github.com/msjujubr/Atividade01/blob/main/src/simulator.cpp#L4-L7)
+
 | Função            | Descrição                                                  |
 |-------------------|------------------------------------------------------------|
 | `bool atividade_fogo()`  | Retorna true (1) caso ainda há árvores para serem queimadas.  |
@@ -167,7 +169,7 @@ Struct Config
 ## *Arquivos 'Simulator'*
 | Função            | Descrição                                                  |
 |-------------------|------------------------------------------------------------|
-| `[void animal_agua()](https://github.com/danieldiv/repositorio-algoritimos/blob/main/src/util/arquivo.cpp#L13)`  | Define a posição em 0 e as ortogonais em 1 (caso 3 do animal) |
+| `[void animal_agua()]`  | Define a posição em 0 e as ortogonais em 1 (caso 3 do animal) |
 | `void animal_movim()`  | O animal possui 3 casos de movimento: quando tem fogo próximo (A), se estiver em uma zona segura (0) e puder ficar nela (animCnt < 3) (B) ou quando ele deve se mexer (C); No caso A o animal prioriza células possíveis de movimento com água, no B soma mais uma iteração parado (animCnt++), e tanto no caso A quando não tem água para o animal ir quanto no caso C, a escolha de movimento é ir para a célula de menor risco (soma_pos() menor) |
 | `void escape()`  | Caso a posição do animal esteja queimando (2), ele vai para uma posição possível (0, 1 ou 4) |
 | `bool fog_prox(int x, int y)` | Retorna 1 caso tenha fogo (2) entre as posições entorno do animal |
