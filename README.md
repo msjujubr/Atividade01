@@ -80,6 +80,9 @@ nesta posição por até 3 interações.
 > &nbsp;&nbsp;&nbsp;&nbsp;**5)** O animal morre quando, em todas as possíveis posições para ele andar houver árvores queimando (2).
 > 
 # Algoritmo Desenvolvido
+## Comportamento
+Similar ao jogo da vida
+
 ## *Lógica Utilizada*
 Para o problema proposto, o programa segue a seguinte ordem:
 
@@ -99,6 +102,7 @@ O código é divido em duas bibliotecas:
 
 A leitura e escrita dos arquivos são feitas por meio da biblioteca [Archive](https://github.com/msjujubr/Archives)
 em C++.
+
 ## *Arquivos 'Config'*
 Explicação das funções contidas dentro da biblioteca Config:
 
@@ -205,5 +209,5 @@ Exemplo de saída:
 </div>
 
 # Referências
-- [Documento Prática](Atividade01/docs)
-  
+- [Documento Prática](docs/documento_atividade01.pdf)
+- [Vídeo do Cosmopolita](https://youtu.be/NqUSJWec3pM?si=C33oaYJOJ01Xs7y5)
