@@ -1,55 +1,57 @@
-iteracao 0
+Iteracao 0
 1 1 1 1 4
 1 2 1 1 1
 1 1 1 1 4
 0 0 1 1 1
 1 4 1 0 4
-iteracao 1
+Coordenada do animal: X: 4 Y: 0
+Iteracao 1
 1 2 1 1 4
-2 3 2 1 1
-1 2 1 1 1
+2 2 2 1 1
+1 2 1 1 4
 0 0 1 1 1
-1 4 1 0 9
-Info: 0 Passos 0 Mortes do Animal
-iteracao 2
-2 3 2 1 4
-3 3 3 2 1
-2 3 2 1 1
-0 0 1 1 9
-1 4 1 0 1
-Info: 1 Passos 0 Mortes do Animal
-iteracao 3
+1 4 1 0 4
+Coordenada do animal: X: 3 Y: 0
+Iteracao 2
+2 2 2 1 4
+2 3 2 2 1
+2 2 2 1 4
+0 0 1 1 1
+1 4 1 0 4
+Coordenada do animal: X: 4 Y: 0
+Iteracao 3
+2 3 2 2 4
+3 3 3 2 2
+2 3 2 2 4
+0 0 2 1 1
+1 4 1 0 4
+Coordenada do animal: X: 4 Y: 1
+Iteracao 4
 3 3 3 2 4
 3 3 3 3 2
-3 3 3 2 1
-0 0 2 1 1
-1 4 1 0 9
-Info: 2 Passos 0 Mortes do Animal
-iteracao 4
-9 3 3 3 4
-3 3 3 3 3
-3 3 3 3 2
-0 0 3 2 1
-1 4 2 0 1
-Info: 3 Passos 0 Mortes do Animal
-iteracao 5
+3 3 3 2 4
+0 0 2 2 1
+1 4 2 0 4
+Coordenada do animal: X: 4 Y: 0
+Iteracao 5
 3 3 3 3 4
-9 3 3 3 3
 3 3 3 3 3
+3 3 3 3 4
+0 0 3 2 2
+1 4 2 0 4
+Coordenada do animal: X: 4 Y: 1
+Iteracao 6
+3 3 3 3 4
+3 3 3 3 3
+3 3 3 3 4
 0 0 3 3 2
-1 4 3 0 1
-Info: 4 Passos 0 Mortes do Animal
-iteracao 6
-9 3 3 3 4
-3 3 3 3 3
-3 3 3 3 3
-0 0 3 3 3
-1 4 3 0 2
-Info: 5 Passos 0 Mortes do Animal
-iteracao 7
+1 4 3 0 4
+Coordenada do animal: X: 4 Y: 0
+Iteracao 7
 3 3 3 3 4
-9 3 3 3 3
 3 3 3 3 3
+3 3 3 3 4
 0 0 3 3 3
-1 4 3 0 3
-Info: 6 Passos 0 Mortes do Animal
+1 4 3 0 4
+Coordenada do animal: X: 3 Y: 0
+Relatorio Final (Animal): Passos: 7 Estado: Vivo
