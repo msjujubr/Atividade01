@@ -3,12 +3,6 @@
 ![Make](https://img.shields.io/badge/Compilacao-Make-orange)
 ![VSCode](https://img.shields.io/badge/IDE-VSCode-informational)
 ![ISO](https://img.shields.io/badge/ISO-Linux-blueviolet)
-
-Coisas para corrigir:
-- deixar mais notório a introdução
-- colocar o link na função  para a devida parte no código
-- montar a struct no readme!
-- desenvolver um fluxograma
   
 <div align="center"> <table> <tr> <td>
  
@@ -59,10 +53,9 @@ acima e abaixo).
 >  
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(a) Sem influência do vento:* o fogo se propaga linearmente nas quatro direções ortogonais.
 > 
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(b) Com influência do vento:* o fogo se propaga apenas em direções ortogonais > específicas, que devem ser configuradas no arquivo *config.h*, podendo ser uma ou mais direções.
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(b) Com influência do vento:* o fogo se propaga apenas em direções ortogonais específicas, que devem ser configuradas no arquivo *config.h*, podendo ser uma ou mais direções.
 > 
-> &nbsp;&nbsp;&nbsp;&nbsp;**5)** O processo de propagação do incêndio continua até que não haja mais árvores em
-chamas (2) ou que o número máximo de interações, K, seja alcançado.
+> &nbsp;&nbsp;&nbsp;&nbsp;**5)** O processo de propagação do incêndio continua até que não haja mais árvores em chamas (2) ou que o número máximo de interações, K, seja alcançado.
 > 
 Dentro desta matriz, há um animal, representado por uma variável externa, que deve procurar uma posição segura. Sua movimentação segue as seguintes regras:
 >  &nbsp;&nbsp;&nbsp;&nbsp;**1)** O animal, quando localizado em uma posição segura (valor 1 ou 0), deve procurar uma nova posição segura nas direções ortogonais, as posições são classificadas da seguinte forma:
@@ -91,25 +84,24 @@ Para o problema proposto, o programa segue a ordem:
 - Começar a simulação
   - Movimentação do animal
   - Propagação do incêdio
-  - Verifica se o animal esta vivo 
+  - Verifica se o animal está vivo 
   - Se estiver vivo, e se for o caso, segunda chance de movimento
   - Salvar a iteração no arquivo 'Output.dat'
+- Salvar a quantidade de passos e o estado final do animal
 
-A simulação é encerrada quando não há árvores queimando (2), ou que o número de iterações chegou ao limite. Tanto a quantidade de iterações quanto as direções de propagação, declaradas como 'vntD' (direita), 'vntE' (esquerda), 'vntC' (cima) e 'vntB' (baixo), são definidas pelo programador dentro da struct Config, incluída na biblioteca "config.hpp". É
-
+***É possível visualizar o processo baixando o [fluxograma](docs/imgs/fluxograma.png) contido neste repositório.***
+  
+A simulação é encerrada quando não há árvores queimando (2), ou que o número de iterações chegou ao limite e tanto a quantidade de iterações quanto as direções de propagação, declaradas dentro da struct Config, incluída na biblioteca "config.hpp", são definidas pelo programador. 
 O código é divido em duas bibliotecas: 
-- **Config:** declaração as variáveis globais dentro da struct Config, funções de inicializar as variáveis, salvar as iterações e aquelas envolvendo o incêndio.
+- **Config:** declaração as variáveis globais dentro da struct Config, funções para inicializar as variáveis, salvar as iterações e aquelas envolvendo o incêndio.
 - **Simulator:** contém a função 'main' do programa, que vai mantê-lo em loop, e as funções que envolvem a movimentação do animal.
 
-A leitura e escrita dos arquivos são feitas por meio da biblioteca [Archive](https://github.com/msjujubr/Archives)
-em C++.
+A leitura e escrita dos arquivos são feitas por meio da biblioteca [Archive](https://github.com/msjujubr/Archives) em C++.
 
 ## *Arquivos 'Config'*
-Explicação das funções contidas dentro da biblioteca Config:
+Explicação das funções contidas dentro da biblioteca Config e a struct Config:
 
-
-**Struct Config{**
-
+    Struct Config{
     // Variáveis Personalizáveis
     int iteracoes = 100;
     bool vntD = 0, vntE = 0, vntC = 0, vntB = 0;
@@ -119,7 +111,7 @@ Explicação das funções contidas dentro da biblioteca Config:
     std::vector<std::pair<int, int>> arv_1_2, arv_2_3;
     int n, m, animX, animY, animMov, animCnt, animMrt;
     bool animVid;
-**};**
+    };
 
 | Função            | Descrição                                                  |
 |-------------------|------------------------------------------------------------|
@@ -233,11 +225,14 @@ Exemplo de saída a cada iteração:
 1 1 1 1 4
 0 0 1 1 1
 1 4 1 0 4
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Animal: 0 Passos, 0 Escapes, X: 3 Y: 0
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Coordenada do animal: X: 4 Y: 0
 </pre>
 </div>
 
 Exemplo de relatório final:
+<div align="center"> <pre>
+  Relatorio Final (Animal): Passos: 7 Estado: Vivo
+</pre> </div>
 
 # Referências
 - [Documento Prática](docs/documento_atividade01.pdf)
@@ -249,8 +244,7 @@ Exemplo de relatório final:
   *Link do GitHub do magisterka com o livro: An Introduction to Multi Agent Systems - Michael Wooldridge*
 - [4]: https://direct.mit.edu/books/monograph/2503/Growing-Artificial-SocietiesSocial-Science-from
   *Livro no MIT Press: Growing Artificial Societies: Social Science from the Bottom Up (1996)*
-## Autora
-colocar foto e informações sobre mim
+
 <div> 
   <a href="https://www.youtube.com/@msjujubr" target="_blank"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" target="_blank"></a>
   <a href="https://instagram.com/msjujubr" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
