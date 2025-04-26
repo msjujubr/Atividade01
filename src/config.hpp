@@ -26,7 +26,9 @@ int defVento();
 void configuracoes();
 void propagacao();
 void salvar();
+void relatorio();
 
+bool atividade_fogo();
 void inicio_animal();
 void prop(int x, int y, std::vector<std::pair<int,int>>& auxiliar);
 void queimadas();

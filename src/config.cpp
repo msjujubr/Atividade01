@@ -41,7 +41,7 @@ void configuracoes(){
     cnfg.n = numeros[0]; cnfg.m = numeros[1];
     cnfg.arv_1_2.push_back(std::make_pair(numeros[2], numeros[3]));
 
-    std::vector<std::string> mensagem = {"iteracao", "0"};
+    std::vector<std::string> mensagem = {"Iteracao", "0"};
     escritaArquivo<std::string>(mensagem);
     while(!arquivo.empty()){
         std::istringstream stream(arquivo[0]);
@@ -58,9 +58,8 @@ void configuracoes(){
     
     inicio_animal();
 
-    int x = cnfg.animX, y = cnfg.animY, pas = cnfg.animMov, escp = cnfg.animMrt;
-    mensagem = {"Info:", std::to_string(pas), "Passos", std::to_string(escp), 
-                "Escapes", "X:", std::to_string(x), "Y", std::to_string(y)};
+    int x = cnfg.animX, y = cnfg.animY;
+    mensagem = {"Coordenada do animal:", "X:", std::to_string(x), "Y:", std::to_string(y)};
     escritaArquivo<std::string>(mensagem);
 
 }
@@ -239,22 +238,28 @@ void propagacao(){
     }
 }
 
-void prop(int x, int y, std::vector<std::pair<int,int>>& arvores){ 
-    if(x >= 0 && x < cnfg.n && y >= 0 && y < cnfg.m){
-        if(cnfg.floresta[x][y] == 1){
-            cnfg.floresta[x][y] = 2;
-            arvores.push_back(std::make_pair(x, y));
-        }
+void salvar(){   
+    for(int i = 0; i <cnfg. n; i++){ escritaArquivo<int>(cnfg.floresta[i]); }
+    int x = cnfg.animX, y = cnfg.animY;
+    std::vector<std::string> mensagem;
+    mensagem = {"Coordenada do animal:", "X:", std::to_string(x), "Y:", std::to_string(y)};
+    escritaArquivo<std::string>(mensagem);
+}
+
+void relatorio(){
+    std::vector<std::string> mensagem;
+    if (cnfg.animVid){
+        mensagem = {"Relatorio Final (Animal):", "Passos:", std::to_string(cnfg.animMov), "Estado:", "Vivo"};
+        escritaArquivo<std::string>(mensagem);   
+    } else {
+        mensagem = {"Relatorio Final (Animal):", "Passos:", std::to_string(cnfg.animMov), "Estado:", "Morto"};
+        escritaArquivo<std::string>(mensagem);   
     }
 }
 
-void salvar(){   
-    for(int i = 0; i <cnfg. n; i++){ escritaArquivo<int>(cnfg.floresta[i]); }
-    int x = cnfg.animX, y = cnfg.animY, pas = cnfg.animMov, escp = cnfg.animMrt;
-    std::vector<std::string> mensagem;
-    mensagem = {"Info:", std::to_string(pas), "Passos", std::to_string(escp), 
-                "Escapes", "X:", std::to_string(x), "Y", std::to_string(y)};
-    escritaArquivo<std::string>(mensagem);
+bool atividade_fogo(){
+    if (!cnfg.arv_2_3.empty()){ return 1; }
+    return 0;   
 }
 
 void inicio_animal(){ 
@@ -274,6 +279,15 @@ void inicio_animal(){
             cnfg.animX = lin;
             cnfg.animY = col;
             return;
+        }
+    }
+}
+
+void prop(int x, int y, std::vector<std::pair<int,int>>& arvores){ 
+    if(x >= 0 && x < cnfg.n && y >= 0 && y < cnfg.m){
+        if(cnfg.floresta[x][y] == 1){
+            cnfg.floresta[x][y] = 2;
+            arvores.push_back(std::make_pair(x, y));
         }
     }
 }

@@ -11,7 +11,6 @@ void schrodinger();
 void escape();
 
 int soma_pos(int x, int y);
-bool atividade_fogo();
 bool fog_prox(int x, int y);
 
 #endif
