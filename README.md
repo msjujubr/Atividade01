@@ -4,10 +4,6 @@
 ![VSCode](https://img.shields.io/badge/IDE-VSCode-informational)
 ![ISO](https://img.shields.io/badge/ISO-Linux-blueviolet)
 
-**Docente:** Michel Pires da Silva ([mpiress](https://github.com/mpiress))
-
-**Discente:** Júlia de Moura Souza (Engenharia de Computação - CEFETMG)
-
 Coisas para corrigir:
 - deixar mais notório a introdução
 - colocar o link na função  para a devida parte no código
@@ -118,6 +114,18 @@ em C++.
 Explicação das funções contidas dentro da biblioteca Config:
 
 Struct Config
+
+struct Config {
+    // Variáveis Personalizáveis
+    int iteracoes = 100;
+    bool vntD = 0, vntE = 0, vntC = 0, vntB = 0;
+
+    // Variáveis Globais
+    std::vector<std::vector<int>> floresta;
+    std::vector<std::pair<int, int>> arv_1_2, arv_2_3;
+    int n, m, animX, animY, animMov, animCnt, animMrt;
+    bool animVid;
+};
 
 [bool atividade_fogo()](https://github.com/msjujubr/Atividade01/blob/main/src/simulator.cpp#L4-L7)
 
