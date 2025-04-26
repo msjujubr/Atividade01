@@ -9,11 +9,7 @@ Coisas para corrigir:
 - colocar o link na função  para a devida parte no código
 - montar a struct no readme!
 - desenvolver um fluxograma
-- computar, ao final do programa, a vida do animal, quantidades de passos
-
-
-
-
+  
 <div align="center"> <table> <tr> <td>
  
 ### 📖 Sumário
