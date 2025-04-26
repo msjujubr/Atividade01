@@ -86,9 +86,7 @@ nesta posição por até 3 interações.
 # O Algoritmo
 
 ## *Lógica Utilizada*
-Para o problema proposto, o programa segue a seguinte ordem:
-
-#### criar o fluxograma seguindo as ordem abaixo (detalhar mais), e colocar aqui! 
+Para o problema proposto, o programa segue a ordem:
 - Inicializar variáveis (matriz, posições do fogo, posição do animal) 
 - Começar a simulação
   - Movimentação do animal
@@ -97,7 +95,7 @@ Para o problema proposto, o programa segue a seguinte ordem:
   - Se estiver vivo, e se for o caso, segunda chance de movimento
   - Salvar a iteração no arquivo 'Output.dat'
 
-A simulação é encerrada quando não há árvores queimando (2), ou que o número de iterações chegou ao limite. Tanto a quantidade de iterações quanto as direções de propagação, declaradas como 'vntD' (direita), 'vntE' (esquerda), 'vntC' (cima) e 'vntB' (baixo), são definidas pelo programador dentro da struct Config, incluída na biblioteca "config.hpp"
+A simulação é encerrada quando não há árvores queimando (2), ou que o número de iterações chegou ao limite. Tanto a quantidade de iterações quanto as direções de propagação, declaradas como 'vntD' (direita), 'vntE' (esquerda), 'vntC' (cima) e 'vntB' (baixo), são definidas pelo programador dentro da struct Config, incluída na biblioteca "config.hpp". É
 
 O código é divido em duas bibliotecas: 
 - **Config:** declaração as variáveis globais dentro da struct Config, funções de inicializar as variáveis, salvar as iterações e aquelas envolvendo o incêndio.
@@ -109,9 +107,9 @@ em C++.
 ## *Arquivos 'Config'*
 Explicação das funções contidas dentro da biblioteca Config:
 
-Struct Config
 
-struct Config {
+**Struct Config{**
+
     // Variáveis Personalizáveis
     int iteracoes = 100;
     bool vntD = 0, vntE = 0, vntC = 0, vntB = 0;
@@ -121,20 +119,19 @@ struct Config {
     std::vector<std::pair<int, int>> arv_1_2, arv_2_3;
     int n, m, animX, animY, animMov, animCnt, animMrt;
     bool animVid;
-};
-
-[bool atividade_fogo()](https://github.com/msjujubr/Atividade01/blob/main/src/simulator.cpp#L4-L7)
+**};**
 
 | Função            | Descrição                                                  |
 |-------------------|------------------------------------------------------------|
-| `bool atividade_fogo()`  | Retorna true (1) caso ainda há árvores para serem queimadas.  |
-| `void configuracoes()` | Processa o arquivo Input.dat e armazena as informações nas variáveis globais; Inicializa o animal |
-| `int defVento()`     | Retorna um número de acordo com o caso de vento (tabela abaixo) |
-| `void inicio_animal()`    | Inicializa as variáveis do animal; Gera uma coordenada aleatória entre os 0 e 1 disponíveis na matriz para ser a posição inicial do animal na simulação |
-| `void prop(int x, int y, vector<pair<int,int>>& auxiliar)` | Confere se na posição (x, y) tem uma árvore saudável (1), se caso afirmativo, queima (2) e armazena no vetor |
-| `void propagacao()`     | Espalha o fogo de acordo com o caso de vento; Para todas as árvores que queimaram na iteração anterior (arv_1_2), pega os vizinhos possíveis e chama a função prop() para cada um; As árvores em arv_1_2 vão para o vetor arv_2_3 e as novas árvores queimadas são armazenadas em arv_1_2. |
-| `void queimada()`  | Define como queimadas (3) todas as árvores do vetor arv_2_3 |
-| `void salvar()`    | Salva a matriz e as informações do animal (passos, coordenada, escapes) |
+| [`bool atividade_fogo()`](https://github.com/msjujubr/Atividade01/blob/main/src/config.cpp#L260)  | Retorna true (1) caso ainda há árvores para serem queimadas.  |
+| [`void configuracoes()`](https://github.com/msjujubr/Atividade01/blob/main/src/config.cpp#L28) | Processa o arquivo Input.dat e armazena as informações nas variáveis globais; Inicializa o animal |
+| [`int defVento()`](https://github.com/msjujubr/Atividade01/blob/main/src/config.cpp#L8)     | Retorna um número de acordo com o caso de vento (tabela abaixo) |
+| [`void inicio_animal()`](https://github.com/msjujubr/Atividade01/blob/main/src/config.cpp#L265)    | Inicializa as variáveis do animal; Gera uma coordenada aleatória entre os 0 e 1 disponíveis na matriz para ser a posição inicial do animal na simulação |
+| [`void prop(int x, int y, vector<pair<int,int>>& auxiliar)`](https://github.com/msjujubr/Atividade01/blob/main/src/config.cpp#L286) | Confere se na posição (x, y) tem uma árvore saudável (1), se caso afirmativo, queima (2) e armazena no vetor |
+| [`void propagacao()`](https://github.com/msjujubr/Atividade01/blob/main/src/config.cpp#L67)     | Espalha o fogo de acordo com o caso de vento; Para todas as árvores que queimaram na iteração anterior (arv_1_2), pega os vizinhos possíveis e chama a função prop() para cada um; As árvores em arv_1_2 vão para o vetor arv_2_3 e as novas árvores queimadas são armazenadas em arv_1_2. |
+| [`void queimada()`](https://github.com/msjujubr/Atividade01/blob/main/src/config.cpp#L295)  | Define como queimadas (3) todas as árvores do vetor arv_2_3 |
+| [`void salvar()`](https://github.com/msjujubr/Atividade01/blob/main/src/config.cpp#L241)    |  Salva a matriz e as coordenadas do animal |
+| [`void relatorio()`](https://github.com/msjujubr/Atividade01/blob/main/src/config.cpp#L249) | Salva a quantidade de passos do animal e o estado dele ao final do programa |
 
 <div align="center"> <table> <tr> <td>
  
@@ -170,18 +167,16 @@ struct Config {
 
 </div>
 
-
 ## *Arquivos 'Simulator'*
 | Função            | Descrição                                                  |
 |-------------------|------------------------------------------------------------|
-| `[void animal_agua()]`  | Define a posição em 0 e as ortogonais em 1 (caso 3 do animal) |
-| `void animal_movim()`  | O animal possui 3 casos de movimento: quando tem fogo próximo (A), se estiver em uma zona segura (0) e puder ficar nela (animCnt < 3) (B) ou quando ele deve se mexer (C); No caso A o animal prioriza células possíveis de movimento com água, no B soma mais uma iteração parado (animCnt++), e tanto no caso A quando não tem água para o animal ir quanto no caso C, a escolha de movimento é ir para a célula de menor risco (soma_pos() menor) |
-| `void escape()`  | Caso a posição do animal esteja queimando (2), ele vai para uma posição possível (0, 1 ou 4) |
-| `bool fog_prox(int x, int y)` | Retorna 1 caso tenha fogo (2) entre as posições entorno do animal |
-| `void inicializacao()` | Loop da simulação |
-| `int soma-pos(int x, int y)`  | Retorna o somatório das células nas posições entorno a coordenada (x,y), considerando a célula de água como zona segura (4 = 0)  |
-| `void schrodinger()`    | Verifica se o animal está encurralado (morto), caso afirmativo as coordenas do animal são definidas como -1 e animVid em 0. |
-
+| [`void animal_agua()`](https://github.com/msjujubr/Atividade01/blob/main/src/simulator.cpp#L69)  | Define a posição em 0 e as ortogonais em 1 (caso 3 do animal) |
+| [`void animal_movim()`](https://github.com/msjujubr/Atividade01/blob/main/src/simulator.cpp#L26)  | O animal possui 3 casos de movimento: quando tem fogo próximo (A), se estiver em uma zona segura (0) e puder ficar nela (animCnt < 3) (B) ou quando ele deve se mexer (C); No caso A o animal prioriza células possíveis de movimento com água, no B soma mais uma iteração parado (animCnt++), e tanto no caso A quando não tem água para o animal ir quanto no caso C, a escolha de movimento é ir para a célula de menor risco (soma_pos() menor) |
+| [`void escape()`](https://github.com/msjujubr/Atividade01/blob/main/src/simulator.cpp#L101)  | Caso a posição do animal esteja queimando (2), ele vai para uma posição possível (0, 1 ou 4) |
+| [`bool fog_prox(int x, int y)`](https://github.com/msjujubr/Atividade01/blob/main/src/simulator.cpp#L133) | Retorna 1 caso tenha fogo (2) entre as posições entorno do animal |
+| [`void inicializacao()`](https://github.com/msjujubr/Atividade01/blob/main/src/simulator.cpp#L4) | Loop da simulação |
+| [`int soma-pos(int x, int y)`](https://github.com/msjujubr/Atividade01/blob/main/src/simulator.cpp#L120)  | Retorna o somatório das células nas posições entorno a coordenada (x,y), considerando a célula de água como zona segura (4 = 0)  |
+| [`void schrodinger()`](https://github.com/msjujubr/Atividade01/blob/main/src/simulator.cpp#L80)    | Verifica se o animal está encurralado (morto), caso afirmativo as coordenas do animal são definidas como -1 e animVid em 0. |
 
 ## Comportamento
 Assim como no [Jogo da Vida][1] (J. Conway, 1970), a propagação do fogo na matriz é baseada em *Autômatos Celulares*, um modelo computacional introduzido por John von Neumann e amplamente explorado por Stephen Wolfram em sua obra: [A New Kind of Science (2002)][2]. Autômatos celulares consistem em células organizadas em uma grade, onde cada célula possui um estado (como “árvore”, “fogo” ou “zona segura” dentro da matriz "floresta") e evolui ao longo do tempo de acordo com regras locais e discretas. Essa abordagem é ideal para simular fenômenos naturais como incêndios florestais, ou condições de vida como no jogo do Conway, em que cada célula depende do estado de suas vizinhas.
